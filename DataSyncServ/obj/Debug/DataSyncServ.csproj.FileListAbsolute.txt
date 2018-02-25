@@ -1,0 +1,12 @@
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\bin\Debug\DataSyncServ.exe.config
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\bin\Debug\DataSyncServ.exe
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\bin\Debug\DataSyncServ.pdb
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.csprojResolveAssemblyReference.cache
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.FmServ.resources
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.Properties.Resources.resources
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.csproj.GenerateResource.Cache
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.csproj.CoreCompileInputs.cache
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.exe
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\obj\Debug\DataSyncServ.pdb
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\bin\Debug\MySql.Data.dll
+C:\Users\1000248501\source\repos\DataSyncServ\DataSyncServ\bin\Debug\MySql.Data.xml
