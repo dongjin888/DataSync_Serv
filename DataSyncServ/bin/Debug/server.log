@@ -853,3 +853,57 @@ resreqcsv:#c:\upload\MPK\leoB\1000248501_1519275500092\debug\LHC_1107_00022DNSlo
 server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#csv请求头:reqcsv:#1000248501_1519276881209#正常响应下载! head:
 resreqcsv:#c:\upload\MPK\leoB\1000248501_1519276881209\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
 server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#============2/24/2018 5:57:24 PM===========
+server open success!
+192.168.0.102:64680 连接到服务器!
+csv请求头:reqcsv:#1000248501_1519273221092#正常响应下载! head:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519273221092\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#csv请求头:reqcsv:#1000248501_1517321741041#正常响应下载! head:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1517321741041\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#csv请求头:reqcsv:#1000248501_1519273325887#正常响应下载! head:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519273325887\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#192.168.0.102:55918 连接到服务器!
+client下载请求头:dnld:#1000248501_1519273325887#server response:resdnld:#1000248501_1519273325887#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519273325887#
+csv请求头:reqcsv:#1000248501_1519273325887#正常响应下载! head:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519273325887\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#============2/25/2018 7:22:15 PM===========
+server open success!
+192.168.0.102:56106 连接到服务器!
+csv请求头:reqcsv:#1000248501_1517321708636#正常响应下载! head:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1517321708636\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#192.168.0.102:56111 连接到服务器!
+client下载请求头:dnld:#1000248501_1517321708636#server response:resdnld:#1000248501_1517321708636#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517321708636#
+client下载请求头:dnld:#1000248501_1517384908530#server response:resdnld:#1000248501_1517384908530#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517384908530#
+client下载请求头:dnld:#1000248501_1517321795120#server response:resdnld:#1000248501_1517321795120#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517321795120#
+============2/25/2018 9:25:07 PM===========
+server open success!
+192.168.0.102:56272 连接到服务器!
+192.168.0.102:56273 连接到服务器!
+client下载请求头:dnld:#1000248501_1519442257526#server response:resdnld:#1000248501_1519442257526#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519442257526#
+client下载请求头:dnld:#1000248501_1519372030116#server response:resdnld:#1000248501_1519372030116#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519372030116#
+csv请求头:reqcsv:#1000248501_1519278090552#正常响应下载! head:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519278090552\debug\LHC_1107_00022DNSlot3.csv#LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#client下载请求头:dnld:#1000248501_1519278090552#server response:resdnld:#1000248501_1519278090552#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519278090552#
+192.168.0.102:56282 连接到服务器!
+upld请求头:upld:#1000248501#1000248501#1000248501_1519568378385#MPK#leoB#co
+server res:resupld:#1000248501_1519568378385#接收到客户端文件头:DNData.zip文件上传请求!
+server res:resfile:#DNData.zip#client:resend:#DNData.zip#
+服务端解压并删除文件成功!
+client下载请求头:dnld:#1000248501_1519568378385#server response:resdnld:#1000248501_1519568378385#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519568378385#
+============2/25/2018 10:21:23 PM===========
+============2/25/2018 10:36:45 PM===========
