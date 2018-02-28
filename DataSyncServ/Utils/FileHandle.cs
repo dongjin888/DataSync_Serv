@@ -45,5 +45,27 @@ namespace DataSyncServ.Utils
                 }
             }
         }
+
+        //循环删除目录
+        public static void cycDeleteDir(DirectoryInfo dir)
+        {
+            if (dir.GetDirectories().Length > 0)
+            {
+                foreach (DirectoryInfo d in dir.GetDirectories())
+                {
+                    cycDeleteDir(d);
+                }
+            }
+
+            //删除目录中的文件
+            if (dir.GetFiles().Length > 0)
+            {
+                FileInfo[] files = dir.GetFiles();
+                for (int i = 0; i < files.Length; i++)
+                    File.Delete(files[i].FullName);
+            }
+            //删除文件
+            Directory.Delete(dir.FullName);
+        }
     }
 }

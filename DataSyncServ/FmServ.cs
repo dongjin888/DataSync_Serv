@@ -41,6 +41,8 @@ namespace DataSyncServ
         volatile bool csvRunFlg = false;
         string summaryName = null;
 
+        object myLock = new object();
+
         public FmServ()
         {
             serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -53,7 +55,7 @@ namespace DataSyncServ
         private void FmServ_Load(object sender, EventArgs e)
         {
             //取消跨线程安全检查
-            Control.CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void FmServ_FormClosing(object sender, FormClosingEventArgs e)
@@ -182,7 +184,7 @@ namespace DataSyncServ
 
             while (!endRecvFlg)
             {
-                Console.WriteLine("cc等待下一次消息\r\n");
+                Console.WriteLine("等待下一次消息\r\n");
                 msgBuf = new byte[64];
                 int count;
                 try{
@@ -190,10 +192,8 @@ namespace DataSyncServ
                 }catch{
                     return ;
                 }
-
                 if (count == 0)
                     return;
-
                 msg = Encoding.UTF8.GetString(msgBuf);
 
                 #region 上传 请求
@@ -223,7 +223,8 @@ namespace DataSyncServ
 
                     //然后会进入到下面的文件数据接收部分
                     recvData(clientSock);
-                    /*
+
+                    /*不能用线程，这样会在sock.Receive()时出错
                     Thread recvDataTh = new Thread(recvData);
                     recvDataTh.IsBackground = true;
                     recvDataTh.Start(clientSock);
@@ -384,11 +385,26 @@ namespace DataSyncServ
             {
                 Directory.CreateDirectory(trialDir.FullName);
             }
-            else
-            {//要上传的文件夹已经存在
-                string errUpld = "errupld:#";
-                clientSock.Send(Encoding.UTF8.GetBytes(errUpld.ToCharArray()));
-                return;
+            else//要上传的文件夹已经存在
+            {
+                //string errUpld = "errupld:#";
+                //clientSock.Send(Encoding.UTF8.GetBytes(errUpld.ToCharArray()));
+                //return;
+
+                lock (myLock)
+                {
+                    //删除这个文件夹中的数据
+                    foreach (FileInfo f in trialDir.GetFiles())
+                    {
+                        File.Delete(f.FullName);
+                    }
+                    foreach (DirectoryInfo d in trialDir.GetDirectories())
+                    {
+                        FileHandle.cycDeleteDir(d);
+                    }
+                }
+                Console.WriteLine("释放锁！");
+                txtLog.AppendText("服务端删除已经存在的Trial文件夹\r\n");
             }
 
             //把client的文件存储为这个
@@ -491,8 +507,8 @@ namespace DataSyncServ
         private void sendData(object sock)
         {
             Socket socket = sock as Socket;
-            FileInfo file = new FileInfo(dnldFileName);
 
+            FileInfo file = new FileInfo(dnldFileName);
             if (socket != null && file.Exists)
             {
                 int transMaxLen = 1024 * 512; //512k
@@ -502,69 +518,73 @@ namespace DataSyncServ
 
                 string msg = null;
 
-                using (FileStream fs = new FileStream(file.FullName, FileMode.Open))
+                lock (myLock)
                 {
-                    //文件一次传输可以完成
-                    if (file.Length < transMaxLen)
+                    using (FileStream fs = new FileStream(file.FullName, FileMode.Open))
                     {
-                        fileBuf = new byte[file.Length];
-                        fs.Read(fileBuf, 0, (int)file.Length);
-
-                        //设置立即发送
-                        socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-                        socket.Send(fileBuf);
-
-                        txtLog.AppendText(file.Name + "一次传输完成!" + "\r\n");
-
-                        /*方法一：
-                         * 使用线程延时后，前面的数据就会先发送，
-                        * 不然socket 算法会让后面的数据和前面的数据一起发送
-                         * 这样的话，就不能正确的接收文件发送结束标志*/
-                        try { Thread.Sleep(500); }
-                        catch { Console.WriteLine("sleep error!"); }
-
-                        //发送文件结束标志
-                        msg = "end:#" + dnldInfo[0]+"_"+dnldInfo[1] + "#";
-                        msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
-                        socket.Send(msgBuf);
-
-                        txtLog.AppendText("csv 文件结束标志:" + msg + "\r\n");
-                    }
-                    //文件过大，需要分段传输
-                    else
-                    {
-                        fileBuf = new byte[transMaxLen];
-                        long fileLen = file.Length;
-                        int times = (int)(fileLen / transMaxLen); //整数次
-                        int leftLen = (int)(fileLen % transMaxLen);//剩下的字节数
-
-                        //发送整数次
-                        for (int i = 1; i <= times; i++)
+                        //文件一次传输可以完成
+                        if (file.Length < transMaxLen)
                         {
-                            fs.Read(fileBuf, 0, transMaxLen);
+                            fileBuf = new byte[file.Length];
+                            fs.Read(fileBuf, 0, (int)file.Length);
+
+                            //设置立即发送
+                            socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
                             socket.Send(fileBuf);
+
+                            txtLog.AppendText(file.Name + "一次传输完成!" + "\r\n");
+
+                            /*方法一：
+                             * 使用线程延时后，前面的数据就会先发送，
+                            * 不然socket 算法会让后面的数据和前面的数据一起发送
+                             * 这样的话，就不能正确的接收文件发送结束标志*/
+                            try { Thread.Sleep(500); }
+                            catch { Console.WriteLine("sleep error!"); }
+
+                            //发送文件结束标志
+                            msg = "end:#" + dnldInfo[0] + "_" + dnldInfo[1] + "#";
+                            msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
+                            socket.Send(msgBuf);
+
+                            txtLog.AppendText("csv 文件结束标志:" + msg + "\r\n");
                         }
+                        //文件过大，需要分段传输
+                        else
+                        {
+                            fileBuf = new byte[transMaxLen];
+                            long fileLen = file.Length;
+                            int times = (int)(fileLen / transMaxLen); //整数次
+                            int leftLen = (int)(fileLen % transMaxLen);//剩下的字节数
 
-                        //发送剩余的字节数
-                        fileBuf = new byte[leftLen];
-                        fs.Read(fileBuf, 0, leftLen);
-                        socket.Send(fileBuf);
+                            //发送整数次
+                            for (int i = 1; i <= times; i++)
+                            {
+                                fs.Read(fileBuf, 0, transMaxLen);
+                                socket.Send(fileBuf);
+                            }
 
-                        //设置延时，使剩余文件信息和 文件结束标志分开发送
-                        try { Thread.Sleep(500); }
-                        catch { Console.WriteLine("sleep error!"); }
+                            //发送剩余的字节数
+                            fileBuf = new byte[leftLen];
+                            fs.Read(fileBuf, 0, leftLen);
+                            socket.Send(fileBuf);
 
-                        txtLog.AppendText(file.Name + " 数据传输完成!\r\n");
+                            //设置延时，使剩余文件信息和 文件结束标志分开发送
+                            try { Thread.Sleep(500); }
+                            catch { Console.WriteLine("sleep error!"); }
 
-                        //最后是 end:# file_name # file_left #   6
-                        //接收response dne: # file_name #        4
-                        msg = "end:#" + dnldInfo[0] + "_" + dnldInfo[1] + "#";
-                        msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
-                        socket.Send(msgBuf);
+                            txtLog.AppendText(file.Name + " 数据传输完成!\r\n");
 
-                        txtLog.AppendText("server:" + msg + "\r\n");
+                            //最后是 end:# file_name # file_left #   6
+                            //接收response dne: # file_name #        4
+                            msg = "end:#" + dnldInfo[0] + "_" + dnldInfo[1] + "#";
+                            msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
+                            socket.Send(msgBuf);
+
+                            txtLog.AppendText("server:" + msg + "\r\n");
+                        }
                     }
-                }
+                }//lock(myLock) 
+                Console.WriteLine("释放锁");
             }
             else
             {

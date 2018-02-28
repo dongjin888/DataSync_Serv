@@ -1,0 +1,6 @@
+# 可执行文件
+.exe
+DataSyncServ/bin/
+
+# summary.csv 的下载换存
+.csv
