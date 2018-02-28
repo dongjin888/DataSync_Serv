@@ -284,13 +284,12 @@ namespace DataSyncServ
                     string reqCsvErrStr = "";
                     List<FileInfo> csvFiles = new List<FileInfo>();
 
-                    //错误
-                    if (path == null)
+                    if (path == null) //服务端没有数据记录
                     {
                         ifReqCsvErr = true;
                         reqCsvErrStr = "没有这条Trail 记录！";
                     }
-                    else
+                    else  // 有数据记录
                     {
                         //然后找到目录中的 summary.csv 文件
                         DirectoryInfo trialPath = new DirectoryInfo(path[1]);
@@ -318,11 +317,11 @@ namespace DataSyncServ
                     //如果文件不存在，回应错误
                     if (ifReqCsvErr)
                     {
-                        msg = "errreqcsv:#";
+                        msg = "errreqcsv:#"+reqCsvErrStr+"#";
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                        Console.WriteLine("server res:\n" + msg);
 
                         txtLog.AppendText("下载出错! 详细信息:\r\n" + reqCsvErrStr);
-
                         //重新等待下一次csv 请求
                         continue;
                     }
@@ -387,6 +386,7 @@ namespace DataSyncServ
             }
             else//要上传的文件夹已经存在
             {
+                // 之前没有使用多次上传时的代码
                 //string errUpld = "errupld:#";
                 //clientSock.Send(Encoding.UTF8.GetBytes(errUpld.ToCharArray()));
                 //return;
@@ -475,19 +475,19 @@ namespace DataSyncServ
             //解压文件，删除多余的文件
             DirectoryInfo debugDir = new DirectoryInfo(trialDir.FullName + "\\debug\\");
             if (!debugDir.Exists) { Directory.CreateDirectory(debugDir.FullName); }
-
+            //> 解压
             ZipFile.ExtractToDirectory(zipFile, debugDir.FullName);
 
-            //遍历debugDir 目录中的 .zip 文件
+            //> 遍历debugDir 目录中所有解压出的文件
+            //> 解压csv.zip,删除其他的.zip 
             List<FileInfo> zipList = new List<FileInfo>();
             FileHandle.traceAllFile(debugDir, zipList);
-
             foreach (FileInfo f in zipList)
             {
-                // 先看是否是.zip 文件
+                //>> 先看是否是.zip 文件
                 if (f.Name.Substring(f.Name.LastIndexOf('.') + 1).Equals("zip"))
                 {
-                    //解压csv.zip 文件
+                    //>>> 解压csv.zip 文件
                     string real = real = f.Name.Substring(0, f.Name.LastIndexOf('.'));
                     if (real.Contains("csv") || real.Contains("Csv"))
                     {
@@ -496,7 +496,7 @@ namespace DataSyncServ
                         ZipFile.ExtractToDirectory(f.FullName, tmp.FullName);
                     }
 
-                    //删除所有zip 文件
+                    //>>> 然后删除zip 文件
                     File.Delete(f.FullName);
                 }
             }
