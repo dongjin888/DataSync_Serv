@@ -108,8 +108,8 @@ namespace DataSyncServ.Utils
                         else
                         {
                             path = new string[2];
-                            path[0] = reader.GetString(0);
-                            path[1] = reader.GetString(1);
+                            path[0] = reader.GetString(0); // trial/
+                            path[1] = reader.GetString(1); // trial/debug/ 
                         }
                     }
 

@@ -204,7 +204,7 @@ namespace DataSyncServ
 
                     msg = "resupld:#" + heads[3] + "#"; //file:#unique#
                     clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));// head response
-                    txtLog.AppendText("server res:" + msg);
+                    txtLog.AppendText("server res:" + msg+"\r\n");
 
                     //重新下一次等待，等待 file: 请求
                     continue;
@@ -219,7 +219,7 @@ namespace DataSyncServ
 
                     msg = "resfile:#" + fileName + "#"; //file:#file_name#
                     clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                    txtLog.AppendText("server res:" + msg);
+                    txtLog.AppendText("server res:" + msg+"\r\n");
 
                     //然后会进入到下面的文件数据接收部分
                     recvData(clientSock);
@@ -275,7 +275,7 @@ namespace DataSyncServ
                 //csv 文件请求
                 if (msg.StartsWith("reqcsv:")) //"reqcsv:#" + userId + "_" + trialDate + "#"
                 {
-                    txtLog.AppendText("csv请求头:" + msg);
+                    txtLog.AppendText("csv请求头:" + msg+"\r\n");
                     //根据请求头中的字段userid,trialdate 去数据库查询该trail路径
                     //检查文件系统中trail路径里是否有.csv 文件
                     string[] trialUnique = (msg.Split('#')[1]).Split('_');
@@ -284,6 +284,8 @@ namespace DataSyncServ
                     string reqCsvErrStr = "";
                     List<FileInfo> csvFiles = new List<FileInfo>();
 
+                    #region Trial 记录检查
+
                     if (path == null) //服务端没有数据记录
                     {
                         ifReqCsvErr = true;
@@ -291,7 +293,7 @@ namespace DataSyncServ
                     }
                     else  // 有数据记录
                     {
-                        //然后找到目录中的 summary.csv 文件
+                        //然后找到 trial/debug/ 中的 summary.csv 文件
                         DirectoryInfo trialPath = new DirectoryInfo(path[1]);
                         if (!trialPath.Exists)
                         {
@@ -313,6 +315,7 @@ namespace DataSyncServ
                             }
                         }
                     }
+                    #endregion
 
                     //如果文件不存在，回应错误
                     if (ifReqCsvErr)
@@ -321,7 +324,7 @@ namespace DataSyncServ
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                         Console.WriteLine("server res:\n" + msg);
 
-                        txtLog.AppendText("下载出错! 详细信息:\r\n" + reqCsvErrStr);
+                        txtLog.AppendText("下载出错! 详细信息:\r\n" + reqCsvErrStr+"\r\n");
                         //重新等待下一次csv 请求
                         continue;
                     }
@@ -334,7 +337,7 @@ namespace DataSyncServ
                         //发送回应
                         msg = "resreqcsv:#" + summaryName + "#";
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                        txtLog.AppendText("正常响应下载! head:\r\n" + msg);
+                        txtLog.AppendText("正常响应reqcsv:\r\n" + msg+"\r\n");
 
                         Thread.Sleep(200);
                         //开启数据传输线程
@@ -348,13 +351,84 @@ namespace DataSyncServ
                 //客户端接收过程中出错 ==>"errdnldcsv:#" + fileName + "#"
                 if (msg.StartsWith("errdnldcsv:"))
                 {
-                    txtLog.AppendText("客户端接收出错:" + msg);
+                    txtLog.AppendText("客户端接收出错:" + msg+"\r\n");
                     //停止上面的csv 文件传输线程，并重新等待下一次csv请求
                     if (csvRunFlg) { csvRunFlg = false; }
 
                     continue;
                 }
                 #endregion
+
+                #region 请求debug/files
+                if (msg.StartsWith("reqdbgfile:")) //"reqdbgfile:#" + userId + "_" + trialDate + "#";
+                {
+                    string unique = msg.Split('#')[1];
+                    string[] trialUnique = (unique).Split('_');  
+                    //获取数据库中该条trail的文件目录
+                    string[] path = service.getTrialPath(trialUnique); //[0]trial/  [1]/trial/debug/
+                    bool ifReqDbgErr = false;
+                    string reqDbgErrStr = "";
+
+                    List<FileInfo> dbgFiles = new List<FileInfo>(); // 用来装 debug/ 中所有文件
+
+                    #region 检测Trail 记录合法性
+                    if (path == null) // 数据库中文件路径不存在
+                    {
+                        ifReqDbgErr = true;
+                        reqDbgErrStr = "reqdbg:数据库中没有改Trial 记录";
+                    }
+                    else // 数据库中文件路径存在
+                    {
+                        //> 文件系统中的 trial/debug/ 
+                        DirectoryInfo trialDbgPath = new DirectoryInfo(path[1]);
+                        if (!trialDbgPath.Exists) //>> trail/debug/不存在
+                        {
+                            ifReqDbgErr = true;
+                            reqDbgErrStr = "reqdbg:数据库中有Trail记录，但文件系统中Trail数据丢失！";
+                        }
+                        else  //>> trail/debug/不存在
+                        {
+                            FileHandle.traceAllFile(trialDbgPath, dbgFiles);
+                            if(dbgFiles.Count == 0) //>>> trail/debug/ 中没有一个文件
+                            {
+                                ifReqDbgErr = true;
+                                reqDbgErrStr = "reqdbg:数据库和文件系统中都有记录，但是数据目录为空!";
+                            }
+                        }
+                    }
+                    #endregion
+                    //--+ 上面的检测完成，下面处理响应信息
+
+                    if (ifReqDbgErr)
+                    {
+                        msg = "errreqcsv:#" + reqDbgErrStr + "#";
+                        clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                        txtLog.AppendText("reqdbgfile出错! 详细信息:\r\n" + reqDbgErrStr+"\r\n");
+                        //重新等待下一次请求
+                        continue;
+                    }
+                    else
+                    {
+                        msg = "resreqdbgfile:#"+ unique + "#";
+                        clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                        txtLog.AppendText("服务端回应 resreqdbgfile:#\r\n"+msg+"\r\n");
+
+                        Thread.Sleep(400);
+                        StringBuilder sb = new StringBuilder("");
+                        for(int i=0; i<dbgFiles.Count; i++)
+                        {
+                            //("fileid-" + i + "*" + debugFiles[i].FullName);
+                            sb.Append("fileid-" + i + "*" + dbgFiles[i].FullName.Replace('#', '@') + ",");
+                        }
+                        sb.Append("#"); //用来分开前面的文件列表#??????及后面多余的东西
+                        msg = sb.ToString();
+                        clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                        txtLog.AppendText("服务端回应了debug/文件:\r\n" + msg + "\r\n");
+                    }
+
+                }//if(msg.startwith('reqdbgfile:')
+                #endregion
+
             }//while(!endRecvFlg)
             txtLog.AppendText("服务端处理请求完成!\r\n");
         }//private void recvMsg()
@@ -501,6 +575,21 @@ namespace DataSyncServ
                 }
             }
             txtLog.AppendText("服务端解压并删除文件成功!\r\n");
+
+            /*制作debug 目录文件字典
+            用来客户端在检索文件时快速回应
+            FileStream fs2= new FileStream(trialDir.FullName + "\\file.dict", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs2);
+            List<FileInfo> debugFiles = new List<FileInfo>();
+            FileHandle.traceAllFile(trialDir, debugFiles);
+            for(int i=0; i<debugFiles.Count; i++)
+            {
+                sw.WriteLine("fileid-" + i + "*" + debugFiles[i].FullName);
+            }
+            sw.Close();
+            fs2.Close();
+            Console.WriteLine("文件字段制作完成!");
+            */
         }
 
         //发送压缩文件
@@ -621,7 +710,7 @@ namespace DataSyncServ
                     //发送文件结束标志
                     msg = "endcsv:#" + file.Name + "#";
                     socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                    txtLog.AppendText("server 发送文件结束标志!:" + msg);
+                    txtLog.AppendText("server 发送文件结束标志!:" + msg+"\r\n");
                 }
                 //文件过大，需要分段传输
                 else
@@ -671,7 +760,7 @@ namespace DataSyncServ
                     //接收response dne: # file_name #
                     msg = "endcsv:#" + file.Name + "#";
                     socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                    txtLog.AppendText("server 发送csv 文件结束标志!:" + msg);
+                    txtLog.AppendText("server 发送csv 文件结束标志!:" + msg+"\r\n");
                     fs.Close();
                 }
 
@@ -698,6 +787,5 @@ namespace DataSyncServ
                 btStartListen.BackColor = Color.Silver;
             }
         }
-
     }
 }
