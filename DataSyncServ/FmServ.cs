@@ -415,10 +415,12 @@ namespace DataSyncServ
 
                         Thread.Sleep(400);
                         StringBuilder sb = new StringBuilder("");
+                        string[] splits = null;
                         for(int i=0; i<dbgFiles.Count; i++)
                         {
                             //("fileid-" + i + "*" + debugFiles[i].FullName);
-                            sb.Append("fileid-" + i + "*" + dbgFiles[i].FullName.Replace('#', '@') + ",");
+                            splits = dbgFiles[i].FullName.Split('\\');
+                            sb.Append("fileid-" + i + "*" + splits[splits.Length-1].Replace('#', '@') + ",");
                         }
                         sb.Append("#"); //用来分开前面的文件列表#??????及后面多余的东西
                         msg = sb.ToString();
