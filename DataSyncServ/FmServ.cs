@@ -420,7 +420,7 @@ namespace DataSyncServ
                         {
                             //("fileid-" + i + "*" + debugFiles[i].FullName);
                             splits = dbgFiles[i].FullName.Split('\\');
-                            sb.Append("fileid-" + i + "*" + splits[splits.Length-1].Replace('#', '@') + ",");
+                            sb.Append(i + "*" + splits[splits.Length-1].Replace('#', '@') + ",");
                         }
                         sb.Append("#"); //用来分开前面的文件列表#??????及后面多余的东西
                         msg = sb.ToString();
