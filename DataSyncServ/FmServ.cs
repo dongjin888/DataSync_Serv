@@ -34,6 +34,8 @@ namespace DataSyncServ
 
         string dnldFileName = null;
 
+        List<string> bunchFiles = new List<string>();
+
         DataService service = new DataService();
 
         string[] heads = null;
@@ -431,6 +433,108 @@ namespace DataSyncServ
                 }//if(msg.startwith('reqdbgfile:')
                 #endregion
 
+                #region 一堆文件下载请求
+                if (msg.StartsWith("reqbunchfiles:"))
+                {
+                    string[] splits = msg.Split('#');
+                    string[] trialUnique = splits[1].Split('_');
+
+                    byte[] bunchIdBuf = new byte[1024]; //1k
+                    string tmp = null;
+                    try
+                    {
+                        clientSock.Receive(bunchIdBuf);
+                        tmp = Encoding.UTF8.GetString(bunchIdBuf);
+                        if (tmp.StartsWith("bunchfileids"))
+                        {
+                            txtLog.AppendText("接收bunchfileid 成功！\r\n" + tmp + "\r\n");
+
+                            //检查完下载目录后回应客户端
+                            List<string> reqIds = tmp.Split('#')[1].Split(',').ToList();
+                            bunchFiles.Clear();
+
+                            //获取数据库中该条trail的文件目录
+                            string[] path = service.getTrialPath(trialUnique); //[0]trial/  [1]/trial/debug/
+                            bool ifReqBunchErr = false;
+                            string reqBunchErrStr = "";
+                            List<FileInfo> dbgFiles = new List<FileInfo>(); // 用来装 debug/ 中所有文件
+
+                            #region 检测Trail 记录合法性
+                            if (path == null) // 数据库中文件路径不存在
+                            {
+                                ifReqBunchErr = true;
+                                reqBunchErrStr = "reqbunch:数据库中没有改Trial 记录";
+                            }
+                            else // 数据库中文件路径存在
+                            {
+                                //> 文件系统中的 trial/debug/ 
+                                DirectoryInfo trialDbgPath = new DirectoryInfo(path[1]);
+                                if (!trialDbgPath.Exists) //>> trail/debug/不存在
+                                {
+                                    ifReqBunchErr = true;
+                                    reqBunchErrStr = "reqbunch:数据库中有Trail记录，但文件系统中Trail数据丢失！";
+                                }
+                                else  //>> trail/debug/不存在
+                                {
+                                    FileHandle.traceAllFile(trialDbgPath, dbgFiles);
+                                    if (dbgFiles.Count == 0) //>>> trail/debug/ 中没有一个文件
+                                    {
+                                        ifReqBunchErr = true;
+                                        reqBunchErrStr = "reqbunch:数据库和文件系统中都有记录，但是数据目录为空!";
+                                    }
+                                    else
+                                    {
+                                        string id = null;
+                                        for (int i = 0; i < dbgFiles.Count; i++)
+                                        {
+                                            id = i + "";
+                                            if (reqIds.Contains(id))
+                                            {
+                                                bunchFiles.Add(dbgFiles[i].FullName);
+                                                txtLog.AppendText(id + "<>" + dbgFiles[i].FullName + " 加入下载队列!");
+                                            }
+                                        }
+                                        if (bunchFiles.Count == 0)
+                                        {
+                                            ifReqBunchErr = true;
+                                            reqBunchErrStr = "reqbunch:下载文件为零 !";
+                                        }
+                                    }
+                                }
+                            }
+                            #endregion
+                            if (ifReqBunchErr)
+                            {
+                                msg = "errreqbunchfile:#" + reqBunchErrStr + "#";
+                                clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                                txtLog.AppendText("reqdbgfile出错! 详细信息:\r\n" + reqBunchErrStr + "\r\n");
+                                //重新等待下一次请求
+                                continue;
+                            }
+                            else //检查合法，可以下载
+                            {
+                                //检查完成后，开启线程传输,continue
+                                msg = "resreqbunchfile:#" + bunchFiles.Count + "#";
+                                clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                                txtLog.AppendText("server-" + msg + "\r\n");
+
+                                Thread bunchDnldTh = new Thread(bunchDnld);//开启一堆文件下载线程
+                                bunchDnldTh.IsBackground = true;
+                                bunchDnldTh.Start(clientSock);
+                            }
+                        }
+                        else
+                        {
+                            txtLog.AppendText("接收bunchfileid 失败！\r\n" + msg + "\r\n");
+                        }
+
+                    }catch(Exception ex2)
+                    {
+                        txtLog.AppendText("接收bunchfileid 失败！" + ex2.Message);
+                    }
+                }
+                #endregion
+
             }//while(!endRecvFlg)
             txtLog.AppendText("服务端处理请求完成!\r\n");
         }//private void recvMsg()
@@ -767,6 +871,89 @@ namespace DataSyncServ
                 }
 
             } // using(FileStream fs = xxx )
+        }
+
+        //发送一堆文件
+        private void bunchDnld(object sock)
+        {
+            Socket socket = sock as Socket;
+            int sent = 0;
+            int transMaxLen = 1024 * 512; //512k
+            byte[] msgBuf = new byte[200];
+            byte[] fileBuf = null;
+            string msg = null;
+            FileInfo file = null;
+
+            while (sent < bunchFiles.Count)
+            {
+                bool singleFileEnd = false;
+                while (!singleFileEnd)
+                {
+                    //直接发送单个文件数据，客户端直接接收
+                    file = new FileInfo(bunchFiles[sent]);
+
+                    //发送单个文件信息
+                    msg = "singleinfo:#" + file.Length + "#file" + sent + "-" + file.Name.Replace('#', '@') + "#";
+                    msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
+                    socket.Send(msgBuf);
+
+                    using (FileStream fs = new FileStream(file.FullName, FileMode.Open))
+                    {
+                        //文件一次传输可以完成
+                        if (file.Length < transMaxLen)
+                        {
+                            fileBuf = new byte[file.Length];
+                            fs.Read(fileBuf, 0, (int)file.Length);
+
+                            //设置立即发送
+                            socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+                            socket.Send(fileBuf);
+                            txtLog.AppendText(file.Name + "一次文件传输完成!\r\n");
+
+                            //延时
+                            try { Thread.Sleep(500); }
+                            catch { Console.WriteLine("sleep error!"); }
+
+                            //发送单个文件结束标志
+                            msg = "singleend:#" + file.Name.Replace('#','@') + "#" + (bunchFiles.Count - sent -1) + "#"; // left count 
+                            socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                            singleFileEnd = true;
+                        }
+                        //文件过大，需要分段传输
+                        else
+                        {
+                            fileBuf = new byte[transMaxLen];
+                            long fileLen = file.Length;
+                            int times = (int)(fileLen / transMaxLen); //整数次
+                            int leftLen = (int)(fileLen % transMaxLen);//剩下的字节数
+
+                            //发送整数次
+                            for (int i = 1; i <= times; i++)
+                            {
+                                fs.Read(fileBuf, 0, transMaxLen);
+                                socket.Send(fileBuf);
+                            }
+
+                            //发送剩余的字节数
+                            fileBuf = new byte[leftLen];
+                            fs.Read(fileBuf, 0, leftLen);
+                            socket.Send(fileBuf);
+
+                            //设置延时，使剩余文件信息和 文件结束标志分开发送
+                            try { Thread.Sleep(500); }
+                            catch { Console.WriteLine("sleep error!"); }
+
+                            txtLog.AppendText(file.Name + " 数据传输完成!\n");
+
+                            // 单个文件结束标志
+                            msg = "singleend:#" + file.Name.Replace('#', '@') + "#" + (bunchFiles.Count - sent -1) + "#";
+                            socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                            singleFileEnd = true;
+                        }
+                    }//using(FileStream fs = new FileStream())
+                }
+                sent++;
+            }//while(sent < bunchFiles.Count)
         }
 
         private void setButtonStatus()
