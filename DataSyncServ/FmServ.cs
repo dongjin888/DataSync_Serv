@@ -1,18 +1,15 @@
-﻿using System;
+﻿using DataSyncServ.Utils;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net.Sockets;
-using System.Net;
-using System.Threading;
 using System.IO;
 using System.IO.Compression;
-using DataSyncServ.Utils;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace DataSyncServ
 {
@@ -427,7 +424,7 @@ namespace DataSyncServ
                         sb.Append("#"); //用来分开前面的文件列表#??????及后面多余的东西
                         msg = sb.ToString();
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                        txtLog.AppendText("服务端回应了debug/文件:\r\n" + msg + "\r\n");
+                        txtLog.AppendText("服务端回应了debug/文件:msg\r\n");
                     }
 
                 }//if(msg.startwith('reqdbgfile:')
@@ -506,8 +503,16 @@ namespace DataSyncServ
                             if (ifReqBunchErr)
                             {
                                 msg = "errreqbunchfile:#" + reqBunchErrStr + "#";
-                                clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                                txtLog.AppendText("reqdbgfile出错! 详细信息:\r\n" + reqBunchErrStr + "\r\n");
+
+                                try
+                                {
+                                    clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                                    txtLog.AppendText("reqdbgfile出错! 详细信息:\r\n" + reqBunchErrStr + "\r\n");
+                                }catch(Exception ex)
+                                {
+                                    txtLog.AppendText("回应errreqbunchfile时错误！" + ex.Message);
+                                }
+
                                 //重新等待下一次请求
                                 continue;
                             }
@@ -515,12 +520,18 @@ namespace DataSyncServ
                             {
                                 //检查完成后，开启线程传输,continue
                                 msg = "resreqbunchfile:#" + bunchFiles.Count + "#";
-                                clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                                txtLog.AppendText("server-" + msg + "\r\n");
+                                try
+                                {
+                                    clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                                    txtLog.AppendText("server-" + msg + "\r\n");
 
-                                Thread bunchDnldTh = new Thread(bunchDnld);//开启一堆文件下载线程
-                                bunchDnldTh.IsBackground = true;
-                                bunchDnldTh.Start(clientSock);
+                                    Thread bunchDnldTh = new Thread(bunchDnld);//开启一堆文件下载线程
+                                    bunchDnldTh.IsBackground = true;
+                                    bunchDnldTh.Start(clientSock);
+                                }catch(Exception ex)
+                                {
+                                    txtLog.AppendText("回应reqbuchfile时发送错误！" + ex.Message);
+                                }
                             }
                         }
                         else
@@ -893,9 +904,16 @@ namespace DataSyncServ
                     file = new FileInfo(bunchFiles[sent]);
 
                     //发送单个文件信息
-                    msg = "singleinfo:#" + file.Length + "#file" + sent + "-" + file.Name.Replace('#', '@') + "#";
+                    msg = "singleinfo:#" + file.Length + "#"+file.Name.Replace('#', '@') + "#";
                     msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
-                    socket.Send(msgBuf);
+                    try
+                    {
+                        socket.Send(msgBuf);
+                    }catch(Exception ex)
+                    {
+                        txtLog.AppendText("singleinfo:发送失败！" + ex.Message);
+                        break;
+                    }
 
                     using (FileStream fs = new FileStream(file.FullName, FileMode.Open))
                     {
@@ -906,9 +924,17 @@ namespace DataSyncServ
                             fs.Read(fileBuf, 0, (int)file.Length);
 
                             //设置立即发送
-                            socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-                            socket.Send(fileBuf);
-                            txtLog.AppendText(file.Name + "一次文件传输完成!\r\n");
+                            try
+                            {
+                                socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+                                socket.Send(fileBuf);
+                                txtLog.AppendText(file.Name + "一次文件传输完成!\r\n");
+                            }catch(Exception ex)
+                            {
+                                txtLog.AppendText("一次性传送文件时socket错误!" + ex.Message);
+                                break;
+                            }
+                            
 
                             //延时
                             try { Thread.Sleep(500); }
@@ -916,8 +942,15 @@ namespace DataSyncServ
 
                             //发送单个文件结束标志
                             msg = "singleend:#" + file.Name.Replace('#','@') + "#" + (bunchFiles.Count - sent -1) + "#"; // left count 
-                            socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                            singleFileEnd = true;
+                            try
+                            {
+                                socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                                singleFileEnd = true;
+                            }catch(Exception ex)
+                            {
+                                txtLog.AppendText("发送单个文件结束符时错误！" + ex.Message);
+                                break;
+                            }
                         }
                         //文件过大，需要分段传输
                         else
@@ -931,13 +964,27 @@ namespace DataSyncServ
                             for (int i = 1; i <= times; i++)
                             {
                                 fs.Read(fileBuf, 0, transMaxLen);
-                                socket.Send(fileBuf);
+                                try
+                                {
+                                    socket.Send(fileBuf);
+                                }catch(Exception ex)
+                                {
+                                    txtLog.AppendText("分段传输文件时，socket错误!" + ex.Message);
+                                    break;
+                                }
                             }
 
                             //发送剩余的字节数
                             fileBuf = new byte[leftLen];
                             fs.Read(fileBuf, 0, leftLen);
-                            socket.Send(fileBuf);
+                            try
+                            {
+                                socket.Send(fileBuf);
+                            }catch(Exception ex)
+                            {
+                                txtLog.AppendText("分段传输文件时，最后一次传输端口错误!" + ex.Message);
+                                break;
+                            }
 
                             //设置延时，使剩余文件信息和 文件结束标志分开发送
                             try { Thread.Sleep(500); }
@@ -947,8 +994,16 @@ namespace DataSyncServ
 
                             // 单个文件结束标志
                             msg = "singleend:#" + file.Name.Replace('#', '@') + "#" + (bunchFiles.Count - sent -1) + "#";
-                            socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                            singleFileEnd = true;
+                            try
+                            {
+                                socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
+                                singleFileEnd = true;
+                            }
+                            catch(Exception ex)
+                            {
+                                txtLog.AppendText("传输单个文件结束符时错误！" + ex.Message);
+                                break;
+                            }
                         }
                     }//using(FileStream fs = new FileStream())
                 }
