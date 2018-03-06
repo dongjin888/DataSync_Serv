@@ -37,12 +37,8 @@ namespace DataSyncServ
 
         List<string> bunchFiles = new List<string>(); // bunchFiles
 
-        string[] heads = null; // upld
-
         volatile bool csvRunFlg = false;  // csv dnld
         string summaryName = null; //csv dnld
-
-        
 
         public FmServ()
         {
@@ -189,7 +185,7 @@ namespace DataSyncServ
 
             // heads[1]-activator  heads[2]-operator  heads[3]-unique
             // heads[4]-pltfm  heads[5]-pdct heads[6]-info heads[7]-other
-            heads = new string[8];
+            string[] heads = new string[8];
 
             while (!endRecvFlg)
             {
@@ -236,8 +232,11 @@ namespace DataSyncServ
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                         txtLog.AppendText("server res:" + msg + "\r\n");
 
+                        //封装upld任务
+                        UpldTask task = new UpldTask(clientSock, heads);
+
                         //然后会进入到下面的文件数据接收部分
-                        recvData(clientSock);
+                        recvData(task);
                     }
                     catch { txtLog.AppendText("回应resfile 时socket 异常!\r\n"); }
 
@@ -275,7 +274,7 @@ namespace DataSyncServ
                             clientSock.Send(Encoding.UTF8.GetBytes(response.ToCharArray())); //响应client的下载请求
                             txtLog.AppendText("server response:" + response + "\r\n");
 
-                            //组装任务对象
+                            //组装dnld任务
                             DnldTask dnldTask = new DnldTask(clientSock, dnldInfo, dnldFileName);
                             
                             //开启向client 传输文件的线程
@@ -603,9 +602,10 @@ namespace DataSyncServ
         }//private void recvMsg()
 
         //接收压缩文件 upld线程函数
-        private void recvData(object obj)
+        private void recvData(object upldTask)
         {
-            Socket clientSock = obj as Socket;
+            UpldTask task = upldTask as UpldTask;
+            Socket clientSock = task.clientSock;
             if(clientSock == null){
                 Console.WriteLine("recvData thread start error!");
                 return;
@@ -618,13 +618,13 @@ namespace DataSyncServ
             byte[] msgBuf = new byte[64];
 
             //下面是client 上传的 处理
-            DirectoryInfo pltfmDir = new DirectoryInfo(dataPath + heads[4] + "\\");
+            DirectoryInfo pltfmDir = new DirectoryInfo(dataPath + task.heads[4] + "\\");
             if (!pltfmDir.Exists) { Directory.CreateDirectory(pltfmDir.FullName); }
 
-            DirectoryInfo pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + heads[5] + "\\");
+            DirectoryInfo pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + task.heads[5] + "\\");
             if (!pdctDir.Exists) { Directory.CreateDirectory(pdctDir.FullName); }
 
-            DirectoryInfo trialDir = new DirectoryInfo(pdctDir.FullName + "\\" + heads[3] + "\\");
+            DirectoryInfo trialDir = new DirectoryInfo(pdctDir.FullName + "\\" + task.heads[3] + "\\");
             if (!trialDir.Exists) //文件不存在
             {
                 Directory.CreateDirectory(trialDir.FullName);

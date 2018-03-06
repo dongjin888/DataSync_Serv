@@ -2678,3 +2678,20 @@ Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 数据传输完成!
 Logger_TestLog_MRWMfg_MCSB_ParseResults.csv一次文件传输完成!
 Logger_TestLog_OWMfg_MCSB_ParseResults.csv一次文件传输完成!
 ============3/6/2018 3:08:20 PM===========
+server open success!
+10.113.200.34:64679连接到服务器!10.113.200.34:5000
+10.113.200.34:64680连接到服务器!10.113.200.34:5000
+10.113.200.34:64692连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248501#1000248502#1000248501_1520320871821#MPK#leoB#co
+server res:resupld:#1000248501_1520320871821#
+接收到客户端文件头:DNData.zip文件上传请求!
+server res:resfile:#DNData.zip#
+client:resend:#DNData.zip#
+服务端解压并删除文件成功!
+upld请求头:upld:#1000248501#1000248502#1000248501_1520320968812#MPK#leoB#co
+server res:resupld:#1000248501_1520320968812#
+接收到客户端文件头:DNData.zip文件上传请求!
+server res:resfile:#DNData.zip#
+client:resend:#DNData.zip#
+服务端解压并删除文件成功!
+============3/6/2018 3:23:30 PM===========
