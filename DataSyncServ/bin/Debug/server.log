@@ -2626,3 +2626,55 @@ bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPe
 TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
 TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
 ============3/6/2018 12:39:48 PM===========
+server open success!
+10.113.200.34:64584连接到服务器!10.113.200.34:5000
+10.113.200.34:64585连接到服务器!10.113.200.34:5000
+client下载请求头:dnld:#1000248501_1520219005838#server response:resdnld:#1000248501_1520219005838#67176478#
+data.zip 数据传输完成!
+server:end:#1000248501_1520219005838#
+10.113.200.34:64616连接到服务器!10.113.200.34:5000
+10.113.200.34:64617连接到服务器!10.113.200.34:5000
+client下载请求头:dnld:#1000248501_1519273221092#server response:resdnld:#1000248501_1519273221092#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519273221092#
+csv请求头:reqcsv:#1000248501_1519277360057#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519277360057\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519277360057#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#66,67,68,#66<>c:\upload\MPK\leoB\1000248501_1519277360057\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!67<>c:\upload\MPK\leoB\1000248501_1519277360057\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv 加入下载队列!68<>c:\upload\MPK\leoB\1000248501_1519277360057\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#3#
+Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv一次文件传输完成!
+client下载请求头:dnld:#1000248501_1519277360057#server response:resdnld:#1000248501_1519277360057#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519277360057#
+csv请求头:reqcsv:#1000248501_1519307598899#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519307598899\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519307598899#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248501_1519307598899#server response:resdnld:#1000248501_1519307598899#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519307598899#
+csv请求头:reqcsv:#1000248501_1519431260387#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519431260387\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519431260387#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248501_1519431260387#server response:resdnld:#1000248501_1519431260387#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519431260387#
+接收bunchfileid 成功！
+bunchfileids:#13,14,15,#13<>c:\upload\MPK\leoB\1000248501_1519431260387\debug\LHC_08-16-2016_Csv\Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 加入下载队列!14<>c:\upload\MPK\leoB\1000248501_1519431260387\debug\LHC_08-16-2016_Csv\Logger_TestLog_MRWMfg_MCSB_ParseResults.csv 加入下载队列!15<>c:\upload\MPK\leoB\1000248501_1519431260387\debug\LHC_08-16-2016_Csv\Logger_TestLog_OWMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#3#
+Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 数据传输完成!
+Logger_TestLog_MRWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_OWMfg_MCSB_ParseResults.csv一次文件传输完成!
+============3/6/2018 3:08:20 PM===========

@@ -1,4 +1,5 @@
-﻿using DataSyncServ.Utils;
+﻿using DataSyncServ.Tasks;
+using DataSyncServ.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,22 +26,23 @@ namespace DataSyncServ
         //listen button control
         volatile string curStatuStr = "start";
 
-        string dataPath = ContantInfo.Fs.path; //服务端文件存储的根路径
-
-        string[] dnldInfo = new string[2]; //[0]userId [1]datestring
-
-        string dnldFileName = null;
-
-        List<string> bunchFiles = new List<string>();
-
+        // data service
         DataService service = new DataService();
 
-        string[] heads = null;
+        // file save path
+        string dataPath = ContantInfo.Fs.path; //服务端文件存储的根路径
 
-        volatile bool csvRunFlg = false;
-        string summaryName = null;
-
+        // lock 
         object myLock = new object();
+
+        List<string> bunchFiles = new List<string>(); // bunchFiles
+
+        string[] heads = null; // upld
+
+        volatile bool csvRunFlg = false;  // csv dnld
+        string summaryName = null; //csv dnld
+
+        
 
         public FmServ()
         {
@@ -149,6 +151,7 @@ namespace DataSyncServ
             }
         }
 
+        //接收client 连接请求的线程函数
         private void listen()
         {
             if(serverSock == null)
@@ -166,7 +169,7 @@ namespace DataSyncServ
                 }
                 catch { txtLog.AppendText("serversock accept 异常!\r\n");break; }
 
-                txtLog.AppendText(clientSock.RemoteEndPoint + " 连接到服务器!\r\n");
+                txtLog.AppendText(clientSock.RemoteEndPoint + "连接到服务器!"+clientSock.LocalEndPoint+"\r\n");
                 clientSockDict.Add(clientSock.RemoteEndPoint.ToString(), clientSock);
 
                 //每连接到一个client socket ，就开启一个线程接收client 消息
@@ -175,7 +178,8 @@ namespace DataSyncServ
                 thread.Start(clientSock);
             }
         }
-        //用于和client 通信的socket 的处理方法
+
+        //接收到每个client的连接后，会针对每个client开启线程接收消息
         private void recvMsg(object client)
         {
             Socket clientSock = client as Socket;
@@ -253,11 +257,12 @@ namespace DataSyncServ
                 {
                     txtLog.AppendText("client下载请求头:" + msg + "\r\n");
 
-                    dnldInfo = (msg.Split('#')[1]).Split('_'); //dnld:#userid_datestring#
+                    string[] dnldInfo = (msg.Split('#')[1]).Split('_'); //dnld:#userid_datestring#
 
                     //先连接数据库进行检测，是否存在这条记录
                     string[] path = service.getTrialPath(dnldInfo);
-                    dnldFileName = path[0]+"\\"+"data.zip";
+
+                    string dnldFileName = path[0]+"\\"+"data.zip";
                     if(path != null)
                     {
                         // [change the process]
@@ -270,10 +275,13 @@ namespace DataSyncServ
                             clientSock.Send(Encoding.UTF8.GetBytes(response.ToCharArray())); //响应client的下载请求
                             txtLog.AppendText("server response:" + response + "\r\n");
 
+                            //组装任务对象
+                            DnldTask dnldTask = new DnldTask(clientSock, dnldInfo, dnldFileName);
+                            
                             //开启向client 传输文件的线程
                             Thread sendDataTh = new Thread(sendData);
                             sendDataTh.IsBackground = true;
-                            sendDataTh.Start(clientSock);
+                            sendDataTh.Start(dnldTask);
                         }
                         catch { txtLog.AppendText("发送data.zip 回应时文件或socket错误！\r\n"); }
                     }
@@ -594,7 +602,7 @@ namespace DataSyncServ
             txtLog.AppendText("服务端处理请求完成!\r\n");
         }//private void recvMsg()
 
-        //接收压缩文件
+        //接收压缩文件 upld线程函数
         private void recvData(object obj)
         {
             Socket clientSock = obj as Socket;
@@ -612,8 +620,10 @@ namespace DataSyncServ
             //下面是client 上传的 处理
             DirectoryInfo pltfmDir = new DirectoryInfo(dataPath + heads[4] + "\\");
             if (!pltfmDir.Exists) { Directory.CreateDirectory(pltfmDir.FullName); }
+
             DirectoryInfo pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + heads[5] + "\\");
             if (!pdctDir.Exists) { Directory.CreateDirectory(pdctDir.FullName); }
+
             DirectoryInfo trialDir = new DirectoryInfo(pdctDir.FullName + "\\" + heads[3] + "\\");
             if (!trialDir.Exists) //文件不存在
             {
@@ -738,12 +748,13 @@ namespace DataSyncServ
             txtLog.AppendText("服务端解压并删除文件成功!\r\n");
         }
 
-        //发送压缩文件
-        private void sendData(object sock)
+        //发送压缩文件 dnld的线程函数
+        private void sendData(object dnldTask)
         {
-            Socket socket = sock as Socket;
+            DnldTask task = dnldTask as DnldTask;
+            Socket socket = task.clientSock;
+            FileInfo file = new FileInfo(task.dnldFileName);
 
-            FileInfo file = new FileInfo(dnldFileName);
             if (socket != null && file.Exists)
             {
                 int transMaxLen = 1024 * 512; //512k
@@ -780,7 +791,7 @@ namespace DataSyncServ
                             catch { Console.WriteLine("sleep error!"); }
 
                             //发送文件结束标志
-                            msg = "end:#" + dnldInfo[0] + "_" + dnldInfo[1] + "#";
+                            msg = "end:#" + task.dnldInfo[0] + "_" + task.dnldInfo[1] + "#";
                             try
                             {
                                 socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
@@ -826,7 +837,7 @@ namespace DataSyncServ
                             //接收response dne: # file_name #        4
                             try
                             {
-                                msg = "end:#" + dnldInfo[0] + "_" + dnldInfo[1] + "#";
+                                msg = "end:#" + task.dnldInfo[0] + "_" + task.dnldInfo[1] + "#";
                                 socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                                 txtLog.AppendText("server:" + msg + "\r\n");
                             }
