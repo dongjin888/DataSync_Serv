@@ -2446,3 +2446,183 @@ csv请求头:reqcsv:#1000248501_1520220887391#下载出错! 详细信息:
 reqdbgfile出错! 详细信息:
 reqdbg:数据库和文件系统中都有记录，但是数据目录为空!
 ============3/5/2018 12:34:50 PM===========
+server open success!
+10.113.200.34:61245 连接到服务器!
+10.113.200.34:61246 连接到服务器!
+10.113.200.34:61333 连接到服务器!
+10.113.200.34:61334 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#29,30,31,32,#29<>c:\upload\MPK\leoB\1000248501_1519276183892\debug\LHC_08-16-2016_Csv\OpticalSensorDebugFile.csv 加入下载队列!30<>c:\upload\MPK\leoB\1000248501_1519276183892\debug\LHC_08-16-2016_Csv\OTRCCombined.csv 加入下载队列!31<>c:\upload\MPK\leoB\1000248501_1519276183892\debug\LHC_08-16-2016_Csv\OTRCFilterWithoutFilterComparison.csv 加入下载队列!32<>c:\upload\MPK\leoB\1000248501_1519276183892\debug\LHC_08-16-2016_Csv\OverwriteDebug.csv 加入下载队列!server-resreqbunchfile:#4#
+OpticalSensorDebugFile.csv一次文件传输完成!
+OTRCCombined.csv 数据传输完成!
+OTRCFilterWithoutFilterComparison.csv 数据传输完成!
+OverwriteDebug.csv一次文件传输完成!
+client下载请求头:dnld:#1000248501_1519276183892#server response:resdnld:#1000248501_1519276183892#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519276183892#
+10.113.200.34:61372 连接到服务器!
+10.113.200.34:61373 连接到服务器!
+10.113.200.34:61376 连接到服务器!
+upld请求头:upld:#1000248501#1000248501#1000248501_1520299202177#MPK#leoB#co
+server res:resupld:#1000248501_1520299202177#
+接收到客户端文件头:test.zip文件上传请求!
+server res:resfile:#test.zip#
+client:resend:#test.zip#
+服务端解压并删除文件成功!
+10.113.200.34:61392 连接到服务器!
+10.113.200.34:61393 连接到服务器!
+csv请求头:reqcsv:#1000248501_1520299202177#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1520299202177\debug\1000248501_1519450270946.csv#
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520299202177#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248501_1520299202177#server response:resdnld:#1000248501_1520299202177#343906#
+data.zip一次传输完成!
+data.zip文件结束标志:end:#1000248501_1520299202177#
+10.113.200.34:61407 连接到服务器!
+10.113.200.34:61408 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:61503 连接到服务器!
+10.113.200.34:61504 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:61579 连接到服务器!
+10.113.200.34:61580 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:61603 连接到服务器!
+10.113.200.34:61604 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+csv请求头:reqcsv:#1000248501_1519309329302#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519309329302\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519309329302#
+服务端回应了debug/文件:msg
+10.113.200.34:61640 连接到服务器!
+10.113.200.34:61641 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:61681 连接到服务器!
+10.113.200.34:61682 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:61785 连接到服务器!
+10.113.200.34:61786 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+csv请求头:reqcsv:#1000248501_1519451643113#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519451643113\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519451643113#
+服务端回应了debug/文件:msg
+============3/6/2018 10:13:48 AM===========
+server open success!
+10.113.200.34:62311 连接到服务器!
+10.113.200.34:62312 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62327 连接到服务器!
+10.113.200.34:62328 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62434 连接到服务器!
+10.113.200.34:62435 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62444 连接到服务器!
+10.113.200.34:62445 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62461 连接到服务器!
+10.113.200.34:62462 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62510 连接到服务器!
+10.113.200.34:62511 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62521 连接到服务器!
+10.113.200.34:62523 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62559 连接到服务器!
+10.113.200.34:62560 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:62817 连接到服务器!
+10.113.200.34:62818 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:63203 连接到服务器!
+10.113.200.34:63204 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:63434 连接到服务器!
+10.113.200.34:63435 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:63477 连接到服务器!
+10.113.200.34:63478 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:63505 连接到服务器!
+10.113.200.34:63506 连接到服务器!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+============3/6/2018 12:39:48 PM===========
