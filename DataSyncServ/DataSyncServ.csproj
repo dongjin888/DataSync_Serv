@@ -59,6 +59,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\BchDnldTask.cs" />
+    <Compile Include="Tasks\CsvTask.cs" />
     <Compile Include="Tasks\DnldTask.cs" />
     <Compile Include="Tasks\UpldTask.cs" />
     <Compile Include="Utils\ContantInfo.cs" />

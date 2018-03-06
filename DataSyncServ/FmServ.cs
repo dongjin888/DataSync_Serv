@@ -35,11 +35,6 @@ namespace DataSyncServ
         // lock 
         object myLock = new object();
 
-        List<string> bunchFiles = new List<string>(); // bunchFiles
-
-        volatile bool csvRunFlg = false;  // csv dnld
-        string summaryName = null; //csv dnld
-
         public FmServ()
         {
             serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -185,7 +180,8 @@ namespace DataSyncServ
 
             // heads[1]-activator  heads[2]-operator  heads[3]-unique
             // heads[4]-pltfm  heads[5]-pdct heads[6]-info heads[7]-other
-            string[] heads = new string[8];
+            string[] heads = null;
+            CsvTask csvTask = null ;
 
             while (!endRecvFlg)
             {
@@ -306,6 +302,8 @@ namespace DataSyncServ
                 if (msg.StartsWith("reqcsv:")) //"reqcsv:#" + userId + "_" + trialDate + "#"
                 {
                     txtLog.AppendText("csv请求头:" + msg+"\r\n");
+                    csvTask = new CsvTask();
+
                     //根据请求头中的字段userid,trialdate 去数据库查询该trail路径
                     //检查文件系统中trail路径里是否有.csv 文件
                     string[] trialUnique = (msg.Split('#')[1]).Split('_');
@@ -315,7 +313,6 @@ namespace DataSyncServ
                     List<FileInfo> csvFiles = new List<FileInfo>();
 
                     #region Trial 记录检查
-
                     if (path == null) //服务端没有数据记录
                     {
                         ifReqCsvErr = true;
@@ -363,34 +360,34 @@ namespace DataSyncServ
                     }
                     else //如果文件存在，正常回应，并开始发送数据线程
                     {
-                        csvRunFlg = true;
-
-                        summaryName = csvFiles[0].FullName;
+                        csvTask.CsvRunFlg = true;
+                        csvTask.SummaryName = csvFiles[0].FullName;
 
                         try
                         {
                             //发送回应
-                            msg = "resreqcsv:#" + summaryName + "#";
+                            msg = "resreqcsv:#" + csvTask.SummaryName + "#";
                             clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                             txtLog.AppendText("正常响应reqcsv:\r\n" + msg + "\r\n");
+
+                            csvTask.ClientSock = clientSock;
 
                             Thread.Sleep(200);
                             //开启数据传输线程
                             Thread sendCsvTh = new Thread(sendCsvData);
                             sendCsvTh.IsBackground = true;
-                            sendCsvTh.Start(clientSock);
+                            sendCsvTh.Start(csvTask);
                         }
                         catch { txtLog.AppendText("发送resreqcsv回应时，socket异常!\r\n"); }
                     }
 
                 }
-
                 //客户端接收过程中出错 ==>"errdnldcsv:#" + fileName + "#"
                 if (msg.StartsWith("errdnldcsv:"))
                 {
                     txtLog.AppendText("客户端接收出错:" + msg+"\r\n");
                     //停止上面的csv 文件传输线程，并重新等待下一次csv请求
-                    if (csvRunFlg) { csvRunFlg = false; }
+                    if (csvTask.CsvRunFlg) { csvTask.CsvRunFlg = false; }
 
                     continue;
                 }
@@ -499,7 +496,7 @@ namespace DataSyncServ
 
                             //检查完下载目录后回应客户端
                             List<string> reqIds = tmp.Split('#')[1].Split(',').ToList();
-                            bunchFiles.Clear();
+                            List<string> bunchFiles = new List<string>();
 
                             //获取数据库中该条trail的文件目录
                             string[] path = service.getTrialPath(trialUnique); //[0]trial/  [1]/trial/debug/
@@ -576,9 +573,13 @@ namespace DataSyncServ
                                     clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                                     txtLog.AppendText("server-" + msg + "\r\n");
 
+                                    // 封装BchDnld 任务
+                                    BchDnldTask bchTask = new BchDnldTask(clientSock, bunchFiles);
+
                                     Thread bunchDnldTh = new Thread(bunchDnld);//开启一堆文件下载线程
                                     bunchDnldTh.IsBackground = true;
-                                    bunchDnldTh.Start(clientSock);
+                                    bunchDnldTh.Start(bchTask);
+
                                 }catch(Exception ex)
                                 {
                                     txtLog.AppendText("回应reqbuchfile时发送错误！" + ex.Message);
@@ -854,15 +855,16 @@ namespace DataSyncServ
         }
 
         //发送summary.csv 文件
-        private void sendCsvData(object sock)
+        private void sendCsvData(object csvTask)
         {
             int transMaxLen = 1024 * 512; //512k
             byte[] fileBuf = null;
 
             string msg = null;
 
-            Socket socket = sock as Socket;
-            FileInfo file = new FileInfo(summaryName);
+            CsvTask task = csvTask as CsvTask;
+            Socket socket = task.ClientSock;
+            FileInfo file = new FileInfo(task.SummaryName);
             using(FileStream fs = new FileStream(file.FullName, FileMode.Open))
             {
                 //文件一次传输可以完成
@@ -905,7 +907,7 @@ namespace DataSyncServ
                     {
                         fs.Read(fileBuf, 0, transMaxLen);
 
-                        if (!csvRunFlg)
+                        if (!task.CsvRunFlg)
                         {
                             fs.Close();
                             return;
@@ -921,7 +923,7 @@ namespace DataSyncServ
                     fileBuf = new byte[leftLen];
                     fs.Read(fileBuf, 0, leftLen);
 
-                    if (!csvRunFlg)
+                    if (!task.CsvRunFlg)
                     {
                         fs.Close();
                         return;
@@ -938,7 +940,7 @@ namespace DataSyncServ
 
                     txtLog.AppendText(file.Name + " 数据传输完成!\r\n");
 
-                    if (!csvRunFlg)
+                    if (!task.CsvRunFlg)
                     {
                         fs.Close();
                         return;
@@ -964,9 +966,10 @@ namespace DataSyncServ
         }
 
         //发送一堆文件
-        private void bunchDnld(object sock)
+        private void bunchDnld(object bchTask)
         {
-            Socket socket = sock as Socket;
+            BchDnldTask task = bchTask as BchDnldTask;
+            Socket socket = task.clientSock;
             int sent = 0;
             int transMaxLen = 1024 * 512; //512k
             byte[] msgBuf = new byte[200];
@@ -974,13 +977,13 @@ namespace DataSyncServ
             string msg = null;
             FileInfo file = null;
 
-            while (sent < bunchFiles.Count)
+            while (sent < task.bunchFiles.Count)
             {
                 bool singleFileEnd = false;
                 while (!singleFileEnd)
                 {
                     //直接发送单个文件数据，客户端直接接收
-                    file = new FileInfo(bunchFiles[sent]);
+                    file = new FileInfo(task.bunchFiles[sent]);
 
                     //发送单个文件信息
                     msg = "singleinfo:#" + file.Length + "#"+file.Name.Replace('#', '@') + "#";
@@ -1020,7 +1023,7 @@ namespace DataSyncServ
                             catch { Console.WriteLine("sleep error!"); }
 
                             //发送单个文件结束标志
-                            msg = "singleend:#" + file.Name.Replace('#','@') + "#" + (bunchFiles.Count - sent -1) + "#"; // left count 
+                            msg = "singleend:#" + file.Name.Replace('#','@') + "#" + (task.bunchFiles.Count - sent -1) + "#"; // left count 
                             try
                             {
                                 socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
@@ -1072,7 +1075,7 @@ namespace DataSyncServ
                             txtLog.AppendText(file.Name + " 数据传输完成!\n");
 
                             // 单个文件结束标志
-                            msg = "singleend:#" + file.Name.Replace('#', '@') + "#" + (bunchFiles.Count - sent -1) + "#";
+                            msg = "singleend:#" + file.Name.Replace('#', '@') + "#" + (task.bunchFiles.Count - sent -1) + "#";
                             try
                             {
                                 socket.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
