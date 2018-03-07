@@ -2926,3 +2926,264 @@ server res:resfile:#never_same_with_this.zip#
 client:resend:#never_same_with_this.zip#
 服务端解压并删除文件成功!
 ============3/7/2018 9:30:24 AM===========
+server open success!
+10.113.200.34:61642连接到服务器!10.113.200.34:5000
+10.113.200.34:61643连接到服务器!10.113.200.34:5000
+============3/7/2018 10:19:09 AM===========
+server open success!
+10.113.200.34:61705连接到服务器!10.113.200.34:5000
+10.113.200.34:61706连接到服务器!10.113.200.34:5000
+csv请求头:reqcsv:#1000248501_1519276881209#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519276881209\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519276881209#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248501_1519276881209#server response:resdnld:#1000248501_1519276881209#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519276881209#
+10.113.200.34:61715连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520389988344#MPK#leoB#�
+server res:resupld:#1000248502_1520389988344#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#Index was outside the bounds of the array.#
+错误上传的文件删除!
+upld请求头:upld:#1000248502#1000248501#1000248502_1520390076512#MPK#leoB#Ch
+server res:resupld:#1000248502_1520390076512#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#Index was outside the bounds of the array.#
+错误上传的文件删除!
+============3/7/2018 10:40:46 AM===========
+server open success!
+10.113.200.34:61790连接到服务器!10.113.200.34:5000
+10.113.200.34:61791连接到服务器!10.113.200.34:5000
+10.113.200.34:61795连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520390982739#MPK#leoB#Chinese# this is other info #server res:resupld:#1000248502_1520390982739#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520390982739#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248502_1520390982739\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520390982739#
+服务端回应了debug/文件:msg
+upld请求头:upld:#1000248502#1000248501#1000248502_1520391111367#MPK#leoB#short# this is other info #server res:resupld:#1000248502_1520391111367#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520391111367#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391111367#
+服务端回应了debug/文件:msg
+upld请求头:upld:#1000248502#1000248501#1000248502_1520391204827#MPK#leoB#test>>># this is other info #server res:resupld:#1000248502_1520391204827#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520391204827#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391204827#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#4,5,#4<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\job-txts_weekly-meeting.zip 加入下载队列!5<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\trainnings_new hire train.zip 加入下载队列!server-resreqbunchfile:#2#
+job-txts_weekly-meeting.zip一次文件传输完成!
+trainnings_new hire train.zip一次文件传输完成!
+csv请求头:reqcsv:#1000248502_1520391204827#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391204827#
+服务端回应了debug/文件:msg
+upld请求头:upld:#1000248502#1000248501#1000248502_1520391541685#MPK#leoB#+++++# some thing#server res:resupld:#1000248502_1520391541685#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520391541685#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248502_1520391541685\debug\1000248501_1519450270946.csv#
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391541685#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248502_1520391541685#server response:resdnld:#1000248502_1520391541685#171998#
+data.zip一次传输完成!
+data.zip文件结束标志:end:#1000248502_1520391541685#
+接收bunchfileid 成功！
+bunchfileids:#1,2,#1<>c:\upload\MPK\leoB\1000248502_1520391541685\debug\new.csv 加入下载队列!2<>c:\upload\MPK\leoB\1000248502_1520391541685\debug\new2.csv 加入下载队列!server-resreqbunchfile:#2#
+new.csv一次文件传输完成!
+new2.csv一次文件传输完成!
+============3/7/2018 11:02:46 AM===========
+server open success!
+10.113.200.34:61865连接到服务器!10.113.200.34:5000
+10.113.200.34:61866连接到服务器!10.113.200.34:5000
+10.113.200.34:61873连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520391972066#MPK#leoB#singledir# some thing#server res:resupld:#1000248502_1520391972066#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520391972066#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248502_1520391972066\debug\1000248501_1519450270946.csv#
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391972066#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#3,#3<>c:\upload\MPK\leoB\1000248502_1520391972066\debug\test_other-txts.zip 加入下载队列!server-resreqbunchfile:#1#
+test_other-txts.zip一次文件传输完成!
+csv请求头:reqcsv:#1000248502_1520391204827#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391204827#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#4,5,6,7,#4<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\附件1.1：Workday查看工资单步骤.doc 加入下载队列!5<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\附件1.2：APP查看工资单步骤.docx 加入下载队列!6<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\附件2：工资单格式样板.docx 加入下载队列!7<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\附件3：工资单项目中英文对照表.xlsx 加入下载队列!server-resreqbunchfile:#4#
+附件1.1：Workday查看工资单步骤.doc 数据传输完成!
+附件1.2：APP查看工资单步骤.docx 数据传输完成!
+附件2：工资单格式样板.docx一次文件传输完成!
+附件3：工资单项目中英文对照表.xlsx一次文件传输完成!
+============3/7/2018 11:15:21 AM===========
+server open success!
+10.113.200.34:59475连接到服务器!10.113.200.34:5000
+10.113.200.34:59476连接到服务器!10.113.200.34:5000
+csv请求头:reqcsv:#1000248502_1520391204827#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391204827#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#6,7,#6<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\附件2：工资单格式样板.docx 加入下载队列!7<>c:\upload\MPK\leoB\1000248502_1520391204827\debug\附件3：工资单项目中英文对照表.xlsx 加入下载队列!server-resreqbunchfile:#2#
+附件2：工资单格式样板.docx一次文件传输完成!
+附件3：工资单项目中英文对照表.xlsx一次文件传输完成!
+接收bunchfileid 成功！
+bunchfileids:#3,#3<>c:\upload\MPK\leoB\1000248502_1520391972066\debug\test_other-txts.zip 加入下载队列!server-resreqbunchfile:#1#
+test_other-txts.zip一次文件传输完成!
+csv请求头:reqcsv:#1000248501_1520320871821#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1520320871821\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520320871821#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+10.113.200.34:59544连接到服务器!10.113.200.34:5000
+10.113.200.34:59545连接到服务器!10.113.200.34:5000
+10.113.200.34:59549连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520393674076#MPK#leoB#����# this is other info #server res:resupld:#1000248502_1520393674076#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#数据插入异常!执行插入trial记录时异常！Incorrect string value: '\xEF\xBF\xBD\xEF\xBF\xBD...' for column 'trialInfo' at row 1#
+错误上传的文件删除!
+10.113.200.34:59563连接到服务器!10.113.200.34:5000
+10.113.200.34:59564连接到服务器!10.113.200.34:5000
+10.113.200.34:59567连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520393953353#MPK#leoB#中文# this is other info#server res:resupld:#1000248502_1520393953353#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#数据插入异常!执行插入trial记录时异常！Incorrect string value: '\xE4\xB8\xAD\xE6\x96\x87' for column 'trialInfo' at row 1#
+错误上传的文件删除!
+============3/7/2018 11:39:49 AM===========
+server open success!
+10.113.200.34:63800连接到服务器!10.113.200.34:5000
+10.113.200.34:63801连接到服务器!10.113.200.34:5000
+10.113.200.34:63807连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520399828479#MPK#leoB#中文# this is other info#server res:resupld:#1000248502_1520399828479#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#数据插入异常!执行插入trial记录时异常！Incorrect string value: '\xE4\xB8\xAD\xE6\x96\x87' for column 'trialInfo' at row 1#
+错误上传的文件删除!
+upld请求头:upld:#1000248502#1000248501#1000248502_1520400255686#MPK#leoB#中文# this is other info#server res:resupld:#1000248502_1520400255686#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#数据插入异常!执行插入trial记录时异常！Incorrect string value: '\xE4\xB8\xAD\xE6\x96\x87' for column 'trialInfo' at row 1#
+错误上传的文件删除!
+upld请求头:upld:#1000248502#1000248501#1000248502_1520400341070#MPK#leoB#中文# this is other info#server res:resupld:#1000248502_1520400341070#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#数据插入异常!执行插入trial记录时异常！Incorrect string value: '\xE4\xB8\xAD\xE6\x96\x87' for column 'trialInfo' at row 1#
+错误上传的文件删除!
+upld请求头:upld:#1000248502#1000248501#1000248502_1520400679228#MPK#leoB#中文# this is other info#server res:resupld:#1000248502_1520400679228#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520400679228#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248502_1520400679228\debug\1000248501_1519450270946.csv#
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520400679228#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#3,#3<>c:\upload\MPK\leoB\1000248502_1520400679228\debug\test_other-txts.zip 加入下载队列!server-resreqbunchfile:#1#
+test_other-txts.zip一次文件传输完成!
+============3/7/2018 1:33:21 PM===========
+server open success!
+10.113.200.34:64267连接到服务器!10.113.200.34:5000
+10.113.200.34:64268连接到服务器!10.113.200.34:5000
+csv请求头:reqcsv:#1000248502_1520384480767#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520384480767#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248502_1520384812713#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520384812713#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248502_1520384955033#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520384955033#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248502_1520384955033#server response:resdnld:#1000248502_1520384955033#13220343#
+data.zip 数据传输完成!
+server:end:#1000248502_1520384955033#
+client下载请求头:dnld:#1000248502_1520385754738#server response:resdnld:#1000248502_1520385754738#67176478#
+data.zip 数据传输完成!
+server:end:#1000248502_1520385754738#
+10.113.200.34:64275连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520400679228#MPK#leoB#中文# this is other info#server res:resupld:#1000248502_1520400679228#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端删除已经存在的Trial文件夹
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520391111367#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391111367#
+服务端回应了debug/文件:msg
+upld请求头:upld:#1000248502#1000248501#1000248502_1520401484306#MPK#leoB#����# this is other info #server res:resupld:#1000248502_1520401484306#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248501_1519450270946#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519450270946\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519450270946#
+服务端回应了debug/文件:msg
+============3/7/2018 1:50:17 PM===========

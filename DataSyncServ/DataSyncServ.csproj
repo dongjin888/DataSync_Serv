@@ -66,6 +66,7 @@
     <Compile Include="Utils\ContantInfo.cs" />
     <Compile Include="Utils\DataService.cs" />
     <Compile Include="Utils\FileHandle.cs" />
+    <Compile Include="Utils\TrialInfo.cs" />
     <EmbeddedResource Include="FmServ.resx">
       <DependentUpon>FmServ.cs</DependentUpon>
     </EmbeddedResource>

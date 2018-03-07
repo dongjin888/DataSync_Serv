@@ -35,6 +35,9 @@ namespace DataSyncServ
         // lock 
         object myLock = new object();
 
+        //创建平台,产品目录时的锁
+        object pltfmPdctLock = new object();
+
         public FmServ()
         {
             serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -186,7 +189,7 @@ namespace DataSyncServ
             while (!endRecvFlg)
             {
                 Console.WriteLine("等待下一次消息\r\n");
-                msgBuf = new byte[64];
+                msgBuf = new byte[125];
                 int count;
                 try{
                     count = clientSock.Receive(msgBuf);
@@ -619,15 +622,22 @@ namespace DataSyncServ
             byte[] msgBuf = new byte[64];
 
             //下面是client 上传的 处理
-            DirectoryInfo pltfmDir = new DirectoryInfo(dataPath + task.heads[4] + "\\");
-            if (!pltfmDir.Exists) { Directory.CreateDirectory(pltfmDir.FullName); }
+            DirectoryInfo pltfmDir = null;
+            DirectoryInfo pdctDir = null;
+            lock (pltfmPdctLock)
+            {
+                pltfmDir = new DirectoryInfo(dataPath + task.heads[4] + "\\");
+                if (!pltfmDir.Exists) { Directory.CreateDirectory(pltfmDir.FullName); }
 
-            DirectoryInfo pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + task.heads[5] + "\\");
-            if (!pdctDir.Exists) { Directory.CreateDirectory(pdctDir.FullName); }
+                pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + task.heads[5] + "\\");
+                if (!pdctDir.Exists) { Directory.CreateDirectory(pdctDir.FullName); }
+            }
 
+            bool isNewUpld = false;
             DirectoryInfo trialDir = new DirectoryInfo(pdctDir.FullName + "\\" + task.heads[3] + "\\");
             if (!trialDir.Exists) //文件不存在
             {
+                isNewUpld = true;
                 Directory.CreateDirectory(trialDir.FullName);
             }
             else//要上传的文件夹已经存在
@@ -656,6 +666,8 @@ namespace DataSyncServ
             //把client的文件存储为这个
             string zipFile = trialDir.FullName + "\\" + "data.zip";
             bool endFileFlg = false;
+            bool ifRecvErr = false;
+            string recvErrMsg = "";
             int count = 0;
             using (FileStream fs = new FileStream(zipFile, FileMode.Create))
             {
@@ -668,6 +680,8 @@ namespace DataSyncServ
                     catch
                     {
                         Console.WriteLine("recvData(object obj):接收压缩文件异常！\r\n");
+                        ifRecvErr = true;
+                        recvErrMsg = "接收文件的socket异常";
                         break;
                     }
                     //正常数据
@@ -682,10 +696,10 @@ namespace DataSyncServ
                         //文件结束标志  end:# file_name #
                         if (msg.StartsWith("end:"))
                         {
-                            msg = "resend:#" + msg.Split('#')[1] + "#"; // end:# file_name #
-                            clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
-
-                            txtLog.AppendText("client:" + msg + "\r\n");
+                            //暂时不发送回应，查完数据记录再回应
+                            //msg = "resend:#" + msg.Split('#')[1] + "#"; // end:# file_name #
+                            //clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
+                            //txtLog.AppendText("client:" + msg + "\r\n");
 
                             //防止收到结束符时，文件都还没关闭
                             if (fs.CanWrite)
@@ -710,6 +724,9 @@ namespace DataSyncServ
                             }
                             catch {
                                 endFileFlg = true;
+                                ifRecvErr = true;
+                                recvErrMsg = "接收文件时，写入文件错误！";
+                                break;
                             }
 
                             txtLog.AppendText("保存文件:" + msg.Split('#')[1] + " 成功!\r\n");
@@ -718,35 +735,94 @@ namespace DataSyncServ
                 } // while(!endFileFlg)
             } // using(filestream fs= xxxx )
 
-            //解压文件，删除多余的文件
-            DirectoryInfo debugDir = new DirectoryInfo(trialDir.FullName + "\\debug\\");
-            if (!debugDir.Exists) { Directory.CreateDirectory(debugDir.FullName); }
-            //> 解压
-            ZipFile.ExtractToDirectory(zipFile, debugDir.FullName);
-
-            //> 遍历debugDir 目录中所有解压出的文件
-            //> 解压csv.zip,删除其他的.zip 
-            List<FileInfo> zipList = new List<FileInfo>();
-            FileHandle.traceAllFile(debugDir, zipList);
-            foreach (FileInfo f in zipList)
+            if (!ifRecvErr)
             {
-                //>> 先看是否是.zip 文件
-                if (f.Name.Substring(f.Name.LastIndexOf('.') + 1).Equals("zip"))
+                //解压文件，删除多余的文件
+                DirectoryInfo debugDir = new DirectoryInfo(trialDir.FullName + "\\debug\\");
+                if (!debugDir.Exists) { Directory.CreateDirectory(debugDir.FullName); }
+                //> 解压
+                ZipFile.ExtractToDirectory(zipFile, debugDir.FullName);
+
+                //> 遍历debugDir 目录中所有解压出的文件
+                //> 解压csv.zip,删除其他的.zip 
+                List<FileInfo> zipList = new List<FileInfo>();
+                FileHandle.traceAllFile(debugDir, zipList);
+                foreach (FileInfo f in zipList)
                 {
-                    //>>> 解压csv.zip 文件
-                    string real = real = f.Name.Substring(0, f.Name.LastIndexOf('.'));
-                    if (real.Contains("csv") || real.Contains("Csv"))
+                    //>> 先看是否是.zip 文件
+                    if (f.Name.Substring(f.Name.LastIndexOf('.') + 1).Equals("zip"))
                     {
-                        DirectoryInfo tmp = new DirectoryInfo(debugDir.FullName + real + "\\");
-                        if (!tmp.Exists) { Directory.CreateDirectory(tmp.FullName); }
-                        ZipFile.ExtractToDirectory(f.FullName, tmp.FullName);
+                        //>>> 解压csv.zip 文件
+                        string real = f.Name.Substring(0, f.Name.LastIndexOf('.'));
+                        if (real.Contains("csv") || real.Contains("Csv"))
+                        {
+                            DirectoryInfo tmp = new DirectoryInfo(debugDir.FullName + real + "\\");
+                            if (!tmp.Exists) { Directory.CreateDirectory(tmp.FullName); }
+                            ZipFile.ExtractToDirectory(f.FullName, tmp.FullName);
+                        }
+
+                        //>>> 然后删除bin和sv 的zip 文件
+                        if ((real.Contains("bin") || real.Contains("Bin")) ||
+                            (real.Contains("SV") || real.Contains("sv")))
+                            File.Delete(f.FullName);
+                    }
+                }
+                txtLog.AppendText("服务端解压并删除文件成功!\r\n");
+                //向数据库插入记录
+                try
+                {
+                    if (isNewUpld && !ifRecvErr)
+                    {
+                        TrialInfo trialInfo = new TrialInfo();
+                        trialInfo.Activator = task.heads[1];
+                        trialInfo.Operator = task.heads[2];
+                        trialInfo.Unique = task.heads[3];
+                        trialInfo.Pltfm = task.heads[4];
+                        trialInfo.Pdct = task.heads[5];
+                        trialInfo.Info = task.heads[6];
+                        trialInfo.Other = task.heads[7];
+
+                        //插入该条记录
+                        service.insertTrial(trialInfo);
                     }
 
-                    //>>> 然后删除zip 文件
-                    File.Delete(f.FullName);
+                    try
+                    {
+                        msg = "resend:#" + msg.Split('#')[1] + "#"; // end:# file_name #
+                        clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
+                        txtLog.AppendText("插入trial记录成功!回应客户端:" + msg + "\r\n");
+                    }
+                    catch { }
+                }
+                catch (Exception ex)
+                {
+                    try
+                    {
+                        msg = "errupld:#" + ex.Message + "#"; // end:# file_name #
+                        clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
+                        txtLog.AppendText("插入trial记录失败!回应客户端:" + msg + "\r\n");
+                    }
+                    catch { }
+
+                    //删除文件系统中已经保存的文件
+                    try
+                    {
+                        FileHandle.cycDeleteDir(trialDir);
+                        txtLog.AppendText("错误上传的文件删除!\r\n");
+                    }
+                    catch (Exception ex2) { txtLog.AppendText("删除错误文件时错误!" + ex2.Message + "\r\n"); }
                 }
             }
-            txtLog.AppendText("服务端解压并删除文件成功!\r\n");
+            else
+            {
+                try
+                {
+                    msg = "errupld:#" + recvErrMsg + "#"; // end:# file_name #
+                    clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
+                    txtLog.AppendText("插入trial记录失败!回应客户端:" + msg + "\r\n");
+                }
+                catch { }
+            }
         }
 
         //发送压缩文件 dnld的线程函数
@@ -997,6 +1073,10 @@ namespace DataSyncServ
                         break;
                     }
 
+                    //延时
+                    try { Thread.Sleep(500); }
+                    catch { Console.WriteLine("sleep error!"); }
+
                     using (FileStream fs = new FileStream(file.FullName, FileMode.Open))
                     {
                         //文件一次传输可以完成
@@ -1016,7 +1096,6 @@ namespace DataSyncServ
                                 txtLog.AppendText("一次性传送文件时socket错误!" + ex.Message);
                                 break;
                             }
-                            
 
                             //延时
                             try { Thread.Sleep(500); }

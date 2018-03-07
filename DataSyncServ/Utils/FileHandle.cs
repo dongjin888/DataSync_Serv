@@ -65,7 +65,11 @@ namespace DataSyncServ.Utils
                     File.Delete(files[i].FullName);
             }
             //删除文件
-            Directory.Delete(dir.FullName);
+            try
+            {
+                Directory.Delete(dir.FullName);
+            }
+            catch { throw new Exception(dir.FullName + "删除错误！"); }
         }
     }
 }

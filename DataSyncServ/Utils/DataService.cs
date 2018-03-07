@@ -122,5 +122,48 @@ namespace DataSyncServ.Utils
             return path;
         }
         #endregion
+
+        #region 插入一条trial 记录
+        public void insertTrial(TrialInfo trialInfo)
+        {
+            if (con != null)
+            {
+                try
+                {
+                    if (con.State != ConnectionState.Open) { con.Open(); }
+
+                    string queryStr = @"insert into tabTrials values(null,@pltfm,@pdct,@actor,@date,
+                                        @path,@bugPath,@info,@operat);";
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = queryStr;
+                    cmd.Parameters.AddWithValue("@pltfm", trialInfo.Pltfm);
+                    cmd.Parameters.AddWithValue("@pdct", trialInfo.Pdct);
+                    cmd.Parameters.AddWithValue("@actor", trialInfo.Activator);
+                    cmd.Parameters.AddWithValue("@date", trialInfo.Unique.Split('_')[1]);
+                    string path = ContantInfo.Fs.path + trialInfo.Pltfm + "\\" + trialInfo.Pdct + "\\" +
+                                  trialInfo.Unique + "\\";
+                    cmd.Parameters.AddWithValue("@path", path);
+                    cmd.Parameters.AddWithValue("@bugPath", path + "debug\\");
+                    cmd.Parameters.AddWithValue("@info", trialInfo.Info);
+                    cmd.Parameters.AddWithValue("@operat", trialInfo.Operator);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("插入Trial记录ok!");
+                    }
+                    catch(Exception ex)
+                    {
+                        throw new Exception("执行插入trial记录时异常！" + ex.Message);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception("数据插入异常!" + ex.Message);
+                }
+            }
+        }
+        #endregion
     }
 }
