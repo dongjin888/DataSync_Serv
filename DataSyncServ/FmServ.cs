@@ -784,13 +784,15 @@ namespace DataSyncServ
 
                         //插入该条记录
                         service.insertTrial(trialInfo);
+
+                        txtLog.AppendText("插入数据记录成功！\r\n");
                     }
 
                     try
                     {
                         msg = "resend:#" + msg.Split('#')[1] + "#"; // end:# file_name #
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
-                        txtLog.AppendText("插入trial记录成功!回应客户端:" + msg + "\r\n");
+                        txtLog.AppendText("上传结束，回应客户端:" + msg + "\r\n");
                     }
                     catch { }
                 }
@@ -800,7 +802,7 @@ namespace DataSyncServ
                     {
                         msg = "errupld:#" + ex.Message + "#"; // end:# file_name #
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
-                        txtLog.AppendText("插入trial记录失败!回应客户端:" + msg + "\r\n");
+                        txtLog.AppendText("上传失败,回应客户端:" + msg + "\r\n");
                     }
                     catch { }
 
@@ -819,7 +821,7 @@ namespace DataSyncServ
                 {
                     msg = "errupld:#" + recvErrMsg + "#"; // end:# file_name #
                     clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));//response
-                    txtLog.AppendText("插入trial记录失败!回应客户端:" + msg + "\r\n");
+                    txtLog.AppendText("接收上传文件时错误,回应客户端:" + msg + "\r\n");
                 }
                 catch { }
             }

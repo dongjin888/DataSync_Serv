@@ -3187,3 +3187,116 @@ server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
 resreqdbgfile:#1000248501_1519450270946#
 服务端回应了debug/文件:msg
 ============3/7/2018 1:50:17 PM===========
+server open success!
+10.113.200.34:60889连接到服务器!10.113.200.34:5000
+10.113.200.34:61606连接到服务器!10.113.200.34:5000
+10.113.200.34:62013连接到服务器!10.113.200.34:5000
+10.113.200.34:62023连接到服务器!10.113.200.34:5000
+10.113.200.34:62032连接到服务器!10.113.200.34:5000
+10.113.200.34:62044连接到服务器!10.113.200.34:5000
+10.113.200.34:62053连接到服务器!10.113.200.34:5000
+10.113.200.34:62107连接到服务器!10.113.200.34:5000
+10.113.200.34:62121连接到服务器!10.113.200.34:5000
+10.113.200.34:62143连接到服务器!10.113.200.34:5000
+10.113.200.34:62155连接到服务器!10.113.200.34:5000
+10.113.200.34:62377连接到服务器!10.113.200.34:5000
+10.113.200.34:62408连接到服务器!10.113.200.34:5000
+10.113.200.34:62538连接到服务器!10.113.200.34:5000
+10.113.200.34:62555连接到服务器!10.113.200.34:5000
+10.113.200.34:62563连接到服务器!10.113.200.34:5000
+10.113.200.34:62606连接到服务器!10.113.200.34:5000
+10.113.200.34:62664连接到服务器!10.113.200.34:5000
+10.113.200.34:62672连接到服务器!10.113.200.34:5000
+10.113.200.34:62723连接到服务器!10.113.200.34:5000
+10.113.200.34:62742连接到服务器!10.113.200.34:5000
+10.113.200.34:62759连接到服务器!10.113.200.34:5000
+10.113.200.34:62932连接到服务器!10.113.200.34:5000
+============3/8/2018 12:08:53 PM===========
+server open success!
+10.113.200.34:57160连接到服务器!10.113.200.34:5000
+10.113.200.34:57168连接到服务器!10.113.200.34:5000
+upld请求头:upld:#ChuangLi#1000248248#ChuangLi_1520493276622#MPK#leoB#ChuangLi's code test!#ChuangLi's trial other#server res:resupld:#ChuangLi_1520493276622#
+10.113.200.34:57195连接到服务器!10.113.200.34:5000
+upld请求头:upld:#ChuangLi#1000248248#ChuangLi_1520493693403#AR8#leoB#ChuangLi's code test!#ChuangLi's trial other#server res:resupld:#ChuangLi_1520493693403#
+============3/8/2018 3:35:42 PM===========
+server open success!
+10.113.200.34:50248连接到服务器!10.113.200.34:5000
+upld请求头:upld:#ChuangLi#1000248248#ChuangLi_1520494761042#AR8#leoB#ChuangLi's code test!#ChuangLi's trial other#server res:resupld:#ChuangLi_1520494761042#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+10.113.200.34:50256连接到服务器!10.113.200.34:5000
+upld请求头:upld:#ChuangLi#1000248248#ChuangLi_1520494929289#AR8#leoB#ChuangLi's code test!#ChuangLi's trial other#server res:resupld:#ChuangLi_1520494929289#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录失败!回应客户端:errupld:#数据插入异常!执行插入trial记录时异常！Cannot add or update a child row: a foreign key constraint fails (`datasync`.`tabtrials`, CONSTRAINT `tabtrials_ibfk_2` FOREIGN KEY (`trialUserId`) REFERENCES `tabusers` (`userid`) ON DELETE CASCADE)#
+错误上传的文件删除!
+============3/8/2018 3:47:46 PM===========
+server open success!
+10.113.200.34:50447连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248501#1000248248#1000248501_1520496392331#AR8#leoB#ChuangLi's code test!#1000248501's trial other#server res:resupld:#1000248501_1520496392331#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+============3/8/2018 4:08:46 PM===========
+server open success!
+10.113.200.34:50470连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248501#1000248248#1000248501_1520496857866#AR8#leoB#ChuangLi's code test!#1000248501's o#server res:resupld:#1000248501_1520496857866#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+10.113.200.34:50501连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248248#1000248502_1520497368128#MPK#leoB#MingXiao's code test!#MingXiao's trial other#server res:resupld:#1000248502_1520497368128#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+upld请求头:upld:#1000248502#1000248248#1000248502_1520497368128#MPK#leoB#1000248502's overupload#1000248502's overupload other#server res:resupld:#1000248502_1520497368128#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端删除已经存在的Trial文件夹
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+upld请求头:upld:#1000248502#1000248248#1000248502_1520497368128#MPK#leoB#1000248502's overupload#1000248502's overupload other#server res:resupld:#1000248502_1520497368128#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端删除已经存在的Trial文件夹
+服务端解压并删除文件成功!
+插入trial记录成功!回应客户端:resend:#never_same_with_this.zip#
+============3/8/2018 4:30:44 PM===========
+server open success!
+10.113.200.34:52010连接到服务器!10.113.200.34:5000
+10.113.200.34:52011连接到服务器!10.113.200.34:5000
+10.113.200.34:52012连接到服务器!10.113.200.34:5000
+upld请求头:upld:#1000248502#1000248501#1000248502_1520500428060#AR8#leoB#MingXiao's code test!#MingXiao's trial other#server res:resupld:#1000248502_1520500428060#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248502_1520497368128#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520497368128#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248502_1520500428060#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248502_1520500428060\debug\AsymDebug_C2198.csv#
+AsymDebug_C2198.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#AsymDebug_C2198.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520500428060#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248502_1520500428060#server response:resdnld:#1000248502_1520500428060#6353778#
+data.zip 数据传输完成!
+server:end:#1000248502_1520500428060#
+csv请求头:reqcsv:#1000248501_1520496857866#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1520496857866\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520496857866#
+服务端回应了debug/文件:msg
+upld请求头:upld:#1000248501#1000248501#1000248501_1520500590083#MPK#leoC#ChuangLi's code test!#ChuangLi's trial other#server res:resupld:#1000248501_1520500590083#
+============3/8/2018 5:21:34 PM===========
