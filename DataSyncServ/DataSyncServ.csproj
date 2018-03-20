@@ -51,6 +51,97 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaoView\Depart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\Depart.Designer.cs">
+      <DependentUpon>Depart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\FmDepart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoView\FmDepart.Designer.cs">
+      <DependentUpon>FmDepart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\FmLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoView\FmLevel.Designer.cs">
+      <DependentUpon>FmLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\FmPdct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoView\FmPdct.Designer.cs">
+      <DependentUpon>FmPdct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\FmPltfm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoView\FmPltfm.Designer.cs">
+      <DependentUpon>FmPltfm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\FmTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoView\FmTeam.Designer.cs">
+      <DependentUpon>FmTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\FmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoView\FmUser.Designer.cs">
+      <DependentUpon>FmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\Level.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\Level.Designer.cs">
+      <DependentUpon>Level.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\Platform.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\Platform.Designer.cs">
+      <DependentUpon>Platform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\Product.Designer.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\Team.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\Team.Designer.cs">
+      <DependentUpon>Team.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\Trial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\Trial.Designer.cs">
+      <DependentUpon>Trial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoView\User.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaoView\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dao\Dao.cs" />
+    <Compile Include="FmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmAdmin.Designer.cs">
+      <DependentUpon>FmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmDb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmDb.Designer.cs">
+      <DependentUpon>FmDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="FmServ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,10 +154,58 @@
     <Compile Include="Tasks\CsvTask.cs" />
     <Compile Include="Tasks\DnldTask.cs" />
     <Compile Include="Tasks\UpldTask.cs" />
+    <Compile Include="Utils\Cache.cs" />
     <Compile Include="Utils\ContantInfo.cs" />
     <Compile Include="Utils\DataService.cs" />
+    <Compile Include="Utils\EnDecode.cs" />
     <Compile Include="Utils\FileHandle.cs" />
+    <Compile Include="Utils\MyMd5.cs" />
     <Compile Include="Utils\TrialInfo.cs" />
+    <EmbeddedResource Include="DaoView\Depart.resx">
+      <DependentUpon>Depart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\FmDepart.resx">
+      <DependentUpon>FmDepart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\FmLevel.resx">
+      <DependentUpon>FmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\FmPdct.resx">
+      <DependentUpon>FmPdct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\FmPltfm.resx">
+      <DependentUpon>FmPltfm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\FmTeam.resx">
+      <DependentUpon>FmTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\FmUser.resx">
+      <DependentUpon>FmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\Level.resx">
+      <DependentUpon>Level.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\Platform.resx">
+      <DependentUpon>Platform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\Product.resx">
+      <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\Team.resx">
+      <DependentUpon>Team.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\Trial.resx">
+      <DependentUpon>Trial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoView\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmAdmin.resx">
+      <DependentUpon>FmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmDb.resx">
+      <DependentUpon>FmDb.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FmServ.resx">
       <DependentUpon>FmServ.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +217,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,6 +231,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addHv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addLv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightHv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightLv.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

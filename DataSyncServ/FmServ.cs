@@ -40,10 +40,11 @@ namespace DataSyncServ
 
         public FmServ()
         {
-            serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             clientSockDict = new Dictionary<string, Socket>();
 
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             setButtonStatus();
         }
 
@@ -90,17 +91,19 @@ namespace DataSyncServ
             {
                 try
                 {
-                    serverSock.Shutdown(SocketShutdown.Both);
+                    if (serverSock.Connected)
+                    {
+                        serverSock.Shutdown(SocketShutdown.Both);
+                    }
                     serverSock.Close();
                     serverSock = null;
-                    Console.WriteLine("关闭服务端 接收的socket");
+                    Console.WriteLine("close serversocket ok");
                 }
-                catch
+                catch(Exception ex)
                 {
-                    Console.WriteLine("关闭服务端 接收的socket");
+                    Console.WriteLine("close serversocket exception!\n"+ex.Message);
                 }
             }
-
         }
 
         private void btStartListen_Click(object sender, EventArgs e)
@@ -122,12 +125,15 @@ namespace DataSyncServ
                     IPEndPoint pt = new IPEndPoint(ip, Int32.Parse(port));
                     try
                     {
+                        serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, 
+                            ProtocolType.Tcp);
                         serverSock.Bind(pt);
-                        serverSock.Listen(10); //最大监听100 个请求
+                        serverSock.Listen(50);
+                        listenFlg = true;
                     }
                     catch(Exception ex)
                     {
-                        Console.WriteLine("绑定servSock 出错"+ex.Message);
+                        Console.WriteLine("bind servSock exception:\n"+ex.Message);
                         return;
                     }
 
@@ -159,12 +165,17 @@ namespace DataSyncServ
                 Socket clientSock = null;
                 try
                 {
+                    txtLog.AppendText("wait a connection.... \r\n");
                     clientSock = serverSock.Accept();
-                }
-                catch { txtLog.AppendText("serversock accept 异常!\r\n");break; }
 
-                txtLog.AppendText(clientSock.RemoteEndPoint + "连接到服务器!"+clientSock.LocalEndPoint+"\r\n");
-                clientSockDict.Add(clientSock.RemoteEndPoint.ToString(), clientSock);
+                    txtLog.AppendText(clientSock.RemoteEndPoint + "连接到服务器!" + clientSock.LocalEndPoint + "\r\n");
+                    clientSockDict.Add(clientSock.RemoteEndPoint.ToString(), clientSock);
+                }
+                catch(Exception ex)
+                {
+                    txtLog.AppendText("serversock accept exception!\r\n"+ex.Message+"\r\n");
+                    break;
+                }
 
                 //每连接到一个client socket ，就开启一个线程接收client 消息
                 Thread thread = new Thread(recvMsg);
@@ -194,11 +205,54 @@ namespace DataSyncServ
                 try{
                     count = clientSock.Receive(msgBuf);
                 }catch{
+                    try
+                    {
+                        clientSock.Shutdown(SocketShutdown.Both);
+                        clientSock.Close();
+                        txtLog.AppendText(clientSock.RemoteEndPoint + " exit the application !\r\n");
+                    }
+                    catch { Console.WriteLine("server-client sock close exception!\n"); }
                     return ;
                 }
                 if (count == 0)
                     return;
                 msg = Encoding.UTF8.GetString(msgBuf);
+
+                #region 断开连接
+                if (msg.StartsWith("exit:"))
+                {
+                    string whoExit = clientSock.RemoteEndPoint.ToString();
+                    bool exitException = false;
+                    StringBuilder errMsg = new StringBuilder("");
+                    txtLog.AppendText( whoExit+ " request exit ! \r\n");
+
+                    //关闭连接
+                    try
+                    { clientSock.Shutdown(SocketShutdown.Both);}
+                    catch(Exception ex) { exitException = true;errMsg.Append(ex.Message); }
+
+                    try
+                    {
+                        clientSock.Close();
+                    }
+                    catch { txtLog.AppendText("client "+whoExit+" close exception !\r\n");exitException = true; }
+
+                    //从dict中移除socket连接
+                    try
+                    {
+                        clientSockDict.Remove(whoExit);
+                    }
+                    catch { txtLog.AppendText("remove " + whoExit + " exception !\r\n"); exitException = true; }
+
+                    if (!exitException)
+                    {
+                        txtLog.AppendText(whoExit + " exit ok ! \r\n");
+                    }
+                    else { txtLog.AppendText(whoExit + " may exit err:\r\n  " + errMsg); }
+
+                    return; //退出监听函数
+                }
+                #endregion
 
                 #region 上传 请求
                 if (msg.StartsWith("upld:"))
@@ -461,12 +515,14 @@ namespace DataSyncServ
 
                         Thread.Sleep(400);
                         StringBuilder sb = new StringBuilder("");
-                        string[] splits = null;
+                        DirectoryInfo dbg = new DirectoryInfo(path[1]);
                         for(int i=0; i<dbgFiles.Count; i++)
                         {
-                            //("fileid-" + i + "*" + debugFiles[i].FullName);
-                            splits = dbgFiles[i].FullName.Split('\\');
-                            sb.Append(i + "*" + splits[splits.Length-1].Replace('#', '@') + ",");
+                            //i + "*" + debugFiles[i].FullName
+                            if (dbg.Name.Equals(dbgFiles[i].Directory.Name))
+                                sb.Append(i + "*" + dbgFiles[i].Name.Replace('#', '@') + ",");
+                            else
+                                sb.Append(i + "*" + dbgFiles[i].Directory.Name + "/" + dbgFiles[i].Name.Replace('#', '@') + ",");
                         }
                         sb.Append("#"); //用来分开前面的文件列表#??????及后面多余的东西
                         msg = sb.ToString();
@@ -538,7 +594,7 @@ namespace DataSyncServ
                                             id = i + "";
                                             if (reqIds.Contains(id))
                                             {
-                                                bunchFiles.Add(dbgFiles[i].FullName);
+                                                bunchFiles.Add(dbgFiles[i].FullName);  
                                                 txtLog.AppendText(id + "<>" + dbgFiles[i].FullName + " 加入下载队列!");
                                             }
                                         }
@@ -843,6 +899,7 @@ namespace DataSyncServ
 
                 string msg = null;
 
+                //加锁了
                 lock (myLock)
                 {
                     using (FileStream fs = new FileStream(file.FullName, FileMode.Open))
@@ -1064,7 +1121,10 @@ namespace DataSyncServ
                     file = new FileInfo(task.bunchFiles[sent]);
 
                     //发送单个文件信息
-                    msg = "singleinfo:#" + file.Length + "#"+file.Name.Replace('#', '@') + "#";
+                    if(file.Directory.Name.Equals("debug")) 
+                        msg = "singleinfo:#" + file.Length + "#" + file.Name.Replace('#', '@') + "#";
+                    else  //非debug 中的文件，返回目录
+                        msg = "singleinfo:#" + file.Length + "#" + file.Directory.Name + "-" + file.Name.Replace('#', '@') + "#";
                     msgBuf = Encoding.UTF8.GetBytes(msg.ToCharArray());
                     try
                     {
@@ -1192,6 +1252,31 @@ namespace DataSyncServ
 
                 btStartListen.Enabled = false;
                 btStartListen.BackColor = Color.Silver;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.rightHv;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.rightLv;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FmAdmin fmAdmin = new FmAdmin(service);
+            if (fmAdmin.ShowDialog() == DialogResult.OK)
+            {
+                FmDb fm = new FmDb(service);
+                fm.Show();
             }
         }
     }

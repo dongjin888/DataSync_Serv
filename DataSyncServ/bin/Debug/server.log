@@ -3462,3 +3462,640 @@ TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
 10.113.200.34:53325连接到服务器!10.113.200.34:5000
 10.113.200.34:53330连接到服务器!10.113.200.34:5000
 ============3/9/2018 3:53:57 PM===========
+server open success!
+============3/12/2018 3:27:08 PM===========
+============3/12/2018 3:51:35 PM===========
+============3/12/2018 3:53:37 PM===========
+server open success!
+192.168.0.101:52004连接到服务器!192.168.0.101:5000
+192.168.0.101:52005连接到服务器!192.168.0.101:5000
+192.168.0.101:52006连接到服务器!192.168.0.101:5000
+接收bunchfileid 成功！
+bunchfileids:#1,2,3,4,5,6,7,8,9,10,11,#1<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_1107_00022DNSlot3.csv 加入下载队列!2<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\AmplitudeByServoSectors.csv 加入下载队列!3<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\InquiryMFGCMDRunStatus_Logging.csv 加入下载队列!4<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\KeyPreampChannelSymbols.csv 加入下载队列!5<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgAEQMfg_MCSB_ParseResults.csv 加入下载队列!6<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv 加入下载队列!7<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 加入下载队列!8<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!9<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv 加入下载队列!10<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv 加入下载队列!11<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgNMBOMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#11#
+LHC_1107_00022DNSlot3.csv一次文件传输完成!
+AmplitudeByServoSectors.csv 数据传输完成!
+InquiryMFGCMDRunStatus_Logging.csv一次文件传输完成!
+KeyPreampChannelSymbols.csv一次文件传输完成!
+Logger_TestLog_MfgAEQMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 数据传输完成!
+Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgNMBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+接收bunchfileid 成功！
+bunchfileids:#63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,#63<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgAEQMfg_MCSB_ParseResults.csv 加入下载队列!64<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv 加入下载队列!65<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 加入下载队列!66<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!67<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv 加入下载队列!68<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv 加入下载队列!69<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgNMBOMfg_MCSB_ParseResults.csv 加入下载队列!70<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgWEWMfg_MCSB_ParseResults.csv 加入下载队列!71<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 加入下载队列!72<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_MRWMfg_MCSB_ParseResults.csv 加入下载队列!73<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_OWMfg_MCSB_ParseResults.csv 加入下载队列!74<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_RWOMfg_MCSB_ParseResults.csv 加入下载队列!75<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_SERMfg_MCSB_ParseResults.csv 加入下载队列!76<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_SNRMfg_MCSB_ParseResults.csv 加入下载队列!77<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_SVCHNLMfg_MCSB_ParseResults.csv 加入下载队列!78<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_SVPESLINMfg_MCSB_ParseResults.csv 加入下载队列!79<>c:\upload\AR8\leoB\1000248501_1517321795120\debug\LHC_08-17-2016_Csv\Logger_TestLog_TDBOMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#17#
+Logger_TestLog_MfgAEQMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 数据传输完成!
+Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgNMBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgWEWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 数据传输完成!
+Logger_TestLog_MRWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_OWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_RWOMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SERMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SNRMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SVCHNLMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SVPESLINMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_TDBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+接收bunchfileid 成功！
+bunchfileids:#3,4,#3<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!4<>c:\upload\MPK\leoB\1000248501_1520299202177\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+client下载请求头:dnld:#1000248501_1519431260387#server response:resdnld:#1000248501_1519431260387#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1519431260387#
+192.168.0.101:52083连接到服务器!192.168.0.101:5000
+192.168.0.101:53826连接到服务器!192.168.0.101:5000
+192.168.0.101:53827连接到服务器!192.168.0.101:5000
+192.168.0.101:53828连接到服务器!192.168.0.101:5000
+============3/12/2018 9:54:57 PM===========
+============3/13/2018 9:55:12 AM===========
+============3/13/2018 10:02:38 AM===========
+============3/13/2018 10:06:11 AM===========
+============3/13/2018 10:11:00 AM===========
+============3/13/2018 10:13:52 AM===========
+============3/13/2018 10:27:11 AM===========
+============3/13/2018 10:35:14 AM===========
+============3/13/2018 11:00:47 AM===========
+============3/13/2018 11:01:53 AM===========
+============3/13/2018 11:07:16 AM===========
+============3/13/2018 1:33:00 PM===========
+============3/13/2018 2:31:42 PM===========
+============3/13/2018 3:13:18 PM===========
+============3/13/2018 3:49:00 PM===========
+============3/13/2018 4:01:38 PM===========
+============3/13/2018 4:06:17 PM===========
+============3/13/2018 4:10:25 PM===========
+============3/13/2018 4:15:04 PM===========
+============3/13/2018 4:28:06 PM===========
+============3/13/2018 4:48:45 PM===========
+server open success!
+============3/13/2018 5:25:18 PM===========
+server open success!
+============3/13/2018 5:26:24 PM===========
+server open success!
+============3/13/2018 5:27:33 PM===========
+server open success!
+serversock accept 异常!
+============3/13/2018 5:28:59 PM===========
+server open success!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall============3/13/2018 5:30:50 PM===========
+server open success!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall============3/13/2018 5:37:23 PM===========
+server open success!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCallserver open success!
+server open success!
+============3/13/2018 5:38:40 PM===========
+server open success!
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+server open success!
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/13/2018 5:41:22 PM===========
+============3/13/2018 7:40:52 PM===========
+server open success!
+wait a connection.... 
+192.168.0.101:49942连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:49943连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:49944连接到服务器!192.168.0.101:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517834914722#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517834914722\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517834914722#
+服务端回应了debug/文件:msg
+client下载请求头:dnld:#1000248501_1517834914722#server response:resdnld:#1000248501_1517834914722#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517834914722#
+csv请求头:reqcsv:#1000248501_1517838553906#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517838553906#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#42,43,44,#42<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!43<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\TestLog_MfgGTMMfg_MCSB_ParseResults.csv 加入下载队列!44<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\TestLog_MfgMIWMfg_ExtraData2_Parsed.csv 加入下载队列!server-resreqbunchfile:#3#
+TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgGTMMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgMIWMfg_ExtraData2_Parsed.csv 数据传输完成!
+client下载请求头:dnld:#1000248501_1520555155274#server response:resdnld:#1000248501_1520555155274#310316#
+data.zip一次传输完成!
+data.zip文件结束标志:end:#1000248501_1520555155274#
+upld请求头:upld:#1000248501#1000248501#1000248501_1520941537741#MPK#leoB#ChuangLi's book#ChuangLi's trial other#server res:resupld:#1000248501_1520941537741#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+csv请求头:reqcsv:#1000248501_1520941537741#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520941537741#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#0,1,#0<>c:\upload\MPK\leoB\1000248501_1520941537741\debug\Python网络编程基础.pdf 加入下载队列!1<>c:\upload\MPK\leoB\1000248501_1520941537741\debug\socket0-cs556-3rd-tutorial.pdf 加入下载队列!server-resreqbunchfile:#2#
+Python网络编程基础.pdf 数据传输完成!
+socket0-cs556-3rd-tutorial.pdf 数据传输完成!
+client下载请求头:dnld:#1000248501_1520941537741#server response:resdnld:#1000248501_1520941537741#27119590#
+data.zip 数据传输完成!
+server:end:#1000248501_1520941537741#
+csv请求头:reqcsv:#1000248501_1520320968812#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1520320968812\debug\new2.csv#
+new2.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#new2.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520320968812#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#1,2,#1<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+server open success!
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/13/2018 7:48:26 PM===========
+server open success!
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+server open success!
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/13/2018 7:49:55 PM===========
+server open success!
+wait a connection.... 
+192.168.0.101:62775连接到服务器!192.168.0.101:5000
+wait a connection.... 
+upld请求头:upld:#1000248501#1000248248#1000248501_1520941863289#MPK#leoC#ChuangLi's 03-13#ChuangLi's trial other#server res:resupld:#1000248501_1520941863289#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+192.168.0.101:64144连接到服务器!192.168.0.101:5000
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/13/2018 8:07:51 PM===========
+============3/13/2018 8:52:10 PM===========
+============3/13/2018 9:09:34 PM===========
+============3/13/2018 9:12:23 PM===========
+============3/13/2018 9:16:45 PM===========
+============3/13/2018 9:17:36 PM===========
+============3/13/2018 9:19:50 PM===========
+============3/13/2018 9:32:58 PM===========
+============3/13/2018 9:35:07 PM===========
+============3/13/2018 11:28:52 PM===========
+server open success!
+wait a connection.... 
+192.168.0.101:52578连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:52579连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:52580连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:50351连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:50352连接到服务器!192.168.0.101:5000
+wait a connection.... 
+192.168.0.101:50353连接到服务器!192.168.0.101:5000
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/13/2018 11:52:28 PM===========
+server open success!
+wait a connection.... 
+10.113.200.34:61747连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:61748连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:61749连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517838830666#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517838830666#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#44,45,46,47,48,49,#44<>c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_08-16-2016_Csv\TestLog_MfgMIWMfg_ExtraData2_Parsed.csv 加入下载队列!45<>c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_08-16-2016_Csv\TestLog_MfgMIWMfg_MCSB_ParseResults.csv 加入下载队列!46<>c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_08-16-2016_Csv\TestLog_MfgNMBOMfg_MCSB_ParseResults.csv 加入下载队列!47<>c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_08-16-2016_Csv\TestLog_MfgWEWMfg_ExtraData2_Parsed.csv 加入下载队列!48<>c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_08-16-2016_Csv\TestLog_MfgWEWMfg_MCSB_ParseResults.csv 加入下载队列!49<>c:\upload\AR8\leoB\1000248501_1517838830666\debug\LHC_08-16-2016_Csv\TestLog_MRWMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#6#
+TestLog_MfgMIWMfg_ExtraData2_Parsed.csv 数据传输完成!
+TestLog_MfgMIWMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgNMBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgWEWMfg_ExtraData2_Parsed.csv 数据传输完成!
+TestLog_MfgWEWMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MRWMfg_MCSB_ParseResults.csv一次文件传输完成!
+client下载请求头:dnld:#1000248501_1517838830666#server response:resdnld:#1000248501_1517838830666#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517838830666#
+接收bunchfileid 成功！
+bunchfileids:#1,2,#1<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+upld请求头:upld:#1000248501#1000248501#1000248501_1521173928077#AR8#leoB#ChuangLi's code test!#ChuangLi's trial other#server res:resupld:#1000248501_1521173928077#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+client下载请求头:dnld:#1000248501_1517321813010#server response:resdnld:#1000248501_1517321813010#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517321813010#
+csv请求头:reqcsv:#1000248501_1519272296378#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519272296378\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519272296378#
+服务端回应了debug/文件:msg
+10.113.200.34:61805连接到服务器!10.113.200.34:5000
+wait a connection.... 
+upld请求头:upld:#1000248501#1000248248#1000248501_1520941537741#MPK#leoB#1000248501's overupload#1000248501's overupload other#server res:resupld:#1000248501_1520941537741#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端删除已经存在的Trial文件夹
+服务端解压并删除文件成功!
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/16/2018 1:12:42 PM===========
+server open success!
+wait a connection.... 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/16/2018 4:04:51 PM===========
+============3/19/2018 3:16:49 PM===========
+server open success!
+wait a connection.... 
+10.113.200.34:49433连接到服务器!10.113.200.34:5000
+wait a connection.... 
+upld请求头:upld:#1000248501#1000248248#1000248501_1521451382948#AR8#leoB#ChuangLi's code test!#blade docs#server res:resupld:#1000248501_1521451382948#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/19/2018 5:29:11 PM===========
+server open success!
+wait a connection.... 
+10.113.200.34:64828连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:64829连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:64830连接到服务器!10.113.200.34:5000
+wait a connection.... 
+client下载请求头:dnld:#1000248501_1517838553906#server response:resdnld:#1000248501_1517838553906#67173914#
+data.zip 数据传输完成!
+server:end:#1000248501_1517838553906#
+csv请求头:reqcsv:#1000248501_1519273221092#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519273221092\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519273221092#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248501_1517321813010#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517321813010#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248501_1520941537741#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520941537741#
+服务端回应了debug/文件:msg
+============3/20/2018 8:14:25 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:64917连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:64918连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:64919连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517838553906#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517838553906#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248501_1521451382948#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1521451382948#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248501_1520941863289#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoC\1000248501_1520941863289\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520941863289#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248501_1520941537741#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520941537741#
+服务端回应了debug/文件:msg
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 8:29:03 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:64945连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:64946连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:64947连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517321813010#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517321813010#
+服务端回应了debug/文件:msg
+csv请求头:reqcsv:#1000248502_1520391204827#下载出错! 详细信息:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248502_1520391204827#
+服务端回应了debug/文件:msg
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+server open success!
+wait a connection.... 
+10.113.200.34:65008连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65009连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65010连接到服务器!10.113.200.34:5000
+wait a connection.... 
+接收bunchfileid 成功！
+bunchfileids:#42,65,66,#42<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!65<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 加入下载队列!66<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#3#
+TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 数据传输完成!
+Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+10.113.200.34:65019连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65020连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65021连接到服务器!10.113.200.34:5000
+wait a connection.... 
+接收bunchfileid 成功！
+bunchfileids:#5,6,7,23,24,97,98,99,100,101,102,103,104,108,110,111,112,113,114,115,116,#5<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgAEQMfg_MCSB_ParseResults.csv 加入下载队列!6<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv 加入下载队列!7<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 加入下载队列!23<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\MCWResults.csv 加入下载队列!24<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\MCWRunStep.csv 加入下载队列!97<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgAEQMfg_MCSB_ParseResults.csv 加入下载队列!98<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgAMPMfg_ExtraData2_Parsed.csv 加入下载队列!99<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgAMPMfg_MCSB_ParseResults.csv 加入下载队列!100<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!101<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgGTMMfg_MCSB_ParseResults.csv 加入下载队列!102<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgMIWMfg_ExtraData2_Parsed.csv 加入下载队列!103<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgMIWMfg_MCSB_ParseResults.csv 加入下载队列!104<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_MfgNMBOMfg_MCSB_ParseResults.csv 加入下载队列!108<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_OWMfg_ExtraData2_Parsed.csv 加入下载队列!110<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_RWOMfg_ExtraData2_Parsed.csv 加入下载队列!111<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_RWOMfg_MCSB_ParseResults.csv 加入下载队列!112<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_SERMfg_MCSB_ParseResults.csv 加入下载队列!113<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_SNRMfg_MCSB_ParseResults.csv 加入下载队列!114<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_SVCHNLMfg_MCSB_ParseResults.csv 加入下载队列!115<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_SVPESLINMfg_MCSB_ParseResults.csv 加入下载队列!116<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-17-2016_Csv\TestLog_TDBOMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#21#
+Logger_TestLog_MfgAEQMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 数据传输完成!
+MCWResults.csv一次文件传输完成!
+MCWRunStep.csv一次文件传输完成!
+TestLog_MfgAEQMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgAMPMfg_ExtraData2_Parsed.csv 数据传输完成!
+TestLog_MfgAMPMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgGTMMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgMIWMfg_ExtraData2_Parsed.csv 数据传输完成!
+TestLog_MfgMIWMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_MfgNMBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_OWMfg_ExtraData2_Parsed.csv 数据传输完成!
+TestLog_RWOMfg_ExtraData2_Parsed.csv 数据传输完成!
+TestLog_RWOMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_SERMfg_MCSB_ParseResults.csv 数据传输完成!
+TestLog_SNRMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_SVCHNLMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_SVPESLINMfg_MCSB_ParseResults.csv一次文件传输完成!
+TestLog_TDBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 9:06:40 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:65082连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65083连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65084连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517838553906#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517838553906#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#26,27,28,29,#26<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MWWByVectorProfileFilterWithoutFilterComparison.csv 加入下载队列!27<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MWWFilterWithoutFilterComparison.csv 加入下载队列!28<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\NMBO_BandDebugData.csv 加入下载队列!29<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\OpticalSensorDebugFile.csv 加入下载队列!server-resreqbunchfile:#4#
+MWWByVectorProfileFilterWithoutFilterComparison.csv 数据传输完成!
+MWWFilterWithoutFilterComparison.csv 数据传输完成!
+NMBO_BandDebugData.csv一次文件传输完成!
+OpticalSensorDebugFile.csv一次文件传输完成!
+csv请求头:reqcsv:#1000248501_1520320968812#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1520320968812\debug\new2.csv#
+new2.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#new2.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1520320968812#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#1,2,#1<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 9:14:12 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:65115连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65116连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65117连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517838733201#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517838733201#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#22,23,24,25,64,65,66,#22<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-16-2016_Csv\MCWMJOGMFGProfileRecord.csv 加入下载队列!23<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-16-2016_Csv\MCWResults.csv 加入下载队列!24<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-16-2016_Csv\MCWRunStep.csv 加入下载队列!25<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-16-2016_Csv\MWWandOTRCSectors.csv 加入下载队列!64<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv 加入下载队列!65<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 加入下载队列!66<>c:\upload\AR8\leoB\1000248501_1517838733201\debug\LHC_08-17-2016_Csv\Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#7#
+MCWMJOGMFGProfileRecord.csv 数据传输完成!
+MCWResults.csv一次文件传输完成!
+MCWRunStep.csv一次文件传输完成!
+MWWandOTRCSectors.csv一次文件传输完成!
+Logger_TestLog_MfgAMPMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgASYMMfg_ExtraData2_Parsed.csv 数据传输完成!
+Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+接收bunchfileid 成功！
+bunchfileids:#1,2,#1<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 9:21:29 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:65184连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65185连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65186连接到服务器!10.113.200.34:5000
+wait a connection.... 
+接收bunchfileid 成功！
+bunchfileids:#23,24,25,26,27,28,#23<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MCWResults.csv 加入下载队列!24<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MCWRunStep.csv 加入下载队列!25<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MWWandOTRCSectors.csv 加入下载队列!26<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MWWByVectorProfileFilterWithoutFilterComparison.csv 加入下载队列!27<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\MWWFilterWithoutFilterComparison.csv 加入下载队列!28<>c:\upload\AR8\leoB\1000248501_1517838553906\debug\LHC_08-16-2016_Csv\NMBO_BandDebugData.csv 加入下载队列!server-resreqbunchfile:#6#
+MCWResults.csv一次文件传输完成!
+MCWRunStep.csv一次文件传输完成!
+MWWandOTRCSectors.csv一次文件传输完成!
+MWWByVectorProfileFilterWithoutFilterComparison.csv 数据传输完成!
+MWWFilterWithoutFilterComparison.csv 数据传输完成!
+NMBO_BandDebugData.csv一次文件传输完成!
+10.113.200.34:65198连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65199连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65200连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1517384908530#正常响应reqcsv:
+resreqcsv:#c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1517384908530#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#17,18,19,20,21,22,#17<>c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_08-16-2016_Csv\Logger_TestLog_SERMfg_MCSB_ParseResults.csv 加入下载队列!18<>c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_08-16-2016_Csv\Logger_TestLog_SNRMfg_MCSB_ParseResults.csv 加入下载队列!19<>c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_08-16-2016_Csv\Logger_TestLog_SVCHNLMfg_MCSB_ParseResults.csv 加入下载队列!20<>c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_08-16-2016_Csv\Logger_TestLog_SVPESLINMfg_MCSB_ParseResults.csv 加入下载队列!21<>c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_08-16-2016_Csv\Logger_TestLog_TDBOMfg_MCSB_ParseResults.csv 加入下载队列!22<>c:\upload\AR8\leoB\1000248501_1517384908530\debug\LHC_08-16-2016_Csv\MCWMJOGMFGProfileRecord.csv 加入下载队列!server-resreqbunchfile:#6#
+Logger_TestLog_SERMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SNRMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SVCHNLMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_SVPESLINMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_TDBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+MCWMJOGMFGProfileRecord.csv 数据传输完成!
+upld请求头:upld:#1000248501#1000248501#1000248501_1521509831633#MPK#leoB#null folder#maybe#server res:resupld:#1000248501_1521509831633#
+接收到客户端文件头:never_same_with_this.zip文件上传请求!
+server res:resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 9:39:36 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:65221连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65222连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:65223连接到服务器!10.113.200.34:5000
+wait a connection.... 
+接收bunchfileid 成功！
+bunchfileids:#8,9,10,11,12,13,14,#8<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv 加入下载队列!9<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv 加入下载队列!10<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv 加入下载队列!11<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgNMBOMfg_MCSB_ParseResults.csv 加入下载队列!12<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MfgWEWMfg_MCSB_ParseResults.csv 加入下载队列!13<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 加入下载队列!14<>c:\upload\AR8\leoB\1000248501_1517321813010\debug\LHC_08-16-2016_Csv\Logger_TestLog_MRWMfg_MCSB_ParseResults.csv 加入下载队列!server-resreqbunchfile:#7#
+Logger_TestLog_MfgASYMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgGTMMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgMIWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgNMBOMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MfgWEWMfg_MCSB_ParseResults.csv一次文件传输完成!
+Logger_TestLog_MRWMfg_ExtraData1_Parse_.csv 数据传输完成!
+Logger_TestLog_MRWMfg_MCSB_ParseResults.csv一次文件传输完成!
+csv请求头:reqcsv:#1000248501_1519277241217#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519277241217\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519277241217#
+服务端回应了debug/文件:msg
+接收bunchfileid 成功！
+bunchfileids:#1,2,#1<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1520320968812\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 9:43:39 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:51789连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51790连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51791连接到服务器!10.113.200.34:5000
+wait a connection.... 
+csv请求头:reqcsv:#1000248501_1519273221092#正常响应reqcsv:
+resreqcsv:#c:\upload\MPK\leoB\1000248501_1519273221092\debug\LHC_1107_00022DNSlot3.csv#
+LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
+服务端回应 resreqdbgfile:#
+resreqdbgfile:#1000248501_1519273221092#
+服务端回应了debug/文件:msg
+10.113.200.34:51789 will exit ! 
+10.113.200.34:51790 will exit ! 
+remove 10.113.200.34:51789 !remove 10.113.200.34:51790 !client sock close ok !
+10.113.200.34:51791 will exit ! 
+client sock close ok !
+remove 10.113.200.34:51791 !client sock close ok !
+============3/20/2018 10:08:35 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:51812连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51813连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51814连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51812 request exit ! 
+10.113.200.34:51813 request exit ! 
+10.113.200.34:51814 request exit ! 
+cclient 10.113.200.34:51813 close ok !
+lient 10.113.200.34:51814 close ok !
+client 10.113.200.34:51812 close ok !
+remove 10.113.200.34:51812 from dict !
+remove 10.113.200.34:51814 from dict !
+remove 10.113.200.34:51813 from dict !
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 10:14:14 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:51838连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51838 request exit ! 
+serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 10:21:39 AM===========
+server open success!
+wait a connection.... 
+10.113.200.34:51862连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51863连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51864连接到服务器!10.113.200.34:5000
+wait a connection.... 
+10.113.200.34:51862 request exit ! 
+10.113.200.34:51863 request exit ! 
+10.113.200.34:51862 exit ok!10.113.200.34:51863 exit ok!10.113.200.34:51864 request exit ! 
+10.113.200.34:51864 exit ok!serversock accept exception!
+A blocking operation was interrupted by a call to WSACancelBlockingCall
+============3/20/2018 10:30:58 AM===========
