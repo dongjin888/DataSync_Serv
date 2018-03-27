@@ -43,6 +43,8 @@ namespace DataSyncServ
             ContantInfo.Fs.path = parts[3];
 
             Application.Run(new FmServ());
+
+           
         }
     }
 }

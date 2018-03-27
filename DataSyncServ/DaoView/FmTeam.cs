@@ -23,7 +23,7 @@ namespace DataSyncServ.DaoView
             parent = par;
 
             List<string> departs = service.getDepartStr();
-
+            combDepart.Items.Clear();
             foreach(string de in departs)
             {
                 combDepart.Items.Add(de);

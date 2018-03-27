@@ -15,7 +15,6 @@ namespace DataSyncServ.Utils
 
         public static class SockServ
         {
-            //public static string ip = "192.168.0.101";
             public static string ip = "10.113.200.34";
             public static string port = "5000";
         }
