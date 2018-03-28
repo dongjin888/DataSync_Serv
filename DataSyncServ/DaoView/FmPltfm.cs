@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,20 @@ namespace DataSyncServ.DaoView
                 {
                     MessageBox.Show("Save record ok !", "Add Platform");
                     parent.resetPltfmList();
+
+                    //在文件系统中创建文件夹
+                    string pltfmPath = ContantInfo.Fs.path + txtName.Text.Trim();
+                    if (!Directory.Exists(pltfmPath))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(pltfmPath);
+                        }catch(Exception ex)
+                        {
+                            LogEx.log("create pltfm path exception:\n" + ex.Message);
+                        }
+                    }
+
                     this.Close();
                 }
                 else

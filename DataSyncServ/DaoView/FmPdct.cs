@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,20 @@ namespace DataSyncServ.DaoView
                 {
                     MessageBox.Show("Save record ok !", "Add Product");
                     parent.resetPdctList();
+
+                    //创建平台下的产品文件夹
+                    string pdctPath = ContantInfo.Fs.path + combPltfm.Text + "\\" + txtName.Text.Trim();
+                    if (!Directory.Exists(pdctPath))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(pdctPath);
+                        }catch(Exception ex)
+                        {
+                            LogEx.log("create pdct directory exception:\n" + ex.Message);
+                        }
+                    }
+
                     this.Close();
                 }
                 else

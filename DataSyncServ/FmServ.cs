@@ -35,7 +35,7 @@ namespace DataSyncServ
         object myLock = new object();
 
         //创建平台,产品目录时的锁
-        object pltfmPdctLock = new object();
+        //object pltfmPdctLock = new object();
 
         // csv lock 
         //object csvLock = new object();
@@ -758,16 +758,15 @@ namespace DataSyncServ
             //下面是client 上传的 处理
             DirectoryInfo pltfmDir = null;
             DirectoryInfo pdctDir = null;
-            LogEx.log(clientSock.RemoteEndPoint+" lock pltfm");
-            lock (pltfmPdctLock)
-            {
-                pltfmDir = new DirectoryInfo(dataPath + task.heads[4] + "\\");
-                if (!pltfmDir.Exists) { Directory.CreateDirectory(pltfmDir.FullName); }
-
-                pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + task.heads[5] + "\\");
-                if (!pdctDir.Exists) { Directory.CreateDirectory(pdctDir.FullName); }
-            }
-            LogEx.log(clientSock.RemoteEndPoint+" release pltfm lock");
+            //LogEx.log(clientSock.RemoteEndPoint+" lock pltfm");
+            //lock (pltfmPdctLock)
+            //{
+            pltfmDir = new DirectoryInfo(dataPath + task.heads[4] + "\\");
+            if (!pltfmDir.Exists) { Directory.CreateDirectory(pltfmDir.FullName); }
+            pdctDir = new DirectoryInfo(pltfmDir.FullName + "\\" + task.heads[5] + "\\");
+            if (!pdctDir.Exists) { Directory.CreateDirectory(pdctDir.FullName); }
+            //}
+            //LogEx.log(clientSock.RemoteEndPoint+" release pltfm lock");
 
             bool isNewUpld = false;
             DirectoryInfo trialDir = new DirectoryInfo(pdctDir.FullName + "\\" + task.heads[3] + "\\");
