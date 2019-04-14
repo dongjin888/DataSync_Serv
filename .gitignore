@@ -1,6 +1,10 @@
-# 可执行文件
-.exe
+# Folder
+.vs/
 DataSyncServ/bin/
+DataSeynServ/obj/
+
+# 可执行文件
+*.exe
 
 # summary.csv 的下载换存
-.csv
+*.csv

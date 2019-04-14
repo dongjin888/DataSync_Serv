@@ -94,10 +94,11 @@ namespace DataSyncServ
                 {
                     serverSock.Shutdown(SocketShutdown.Receive);
                     serverSock.Close();
+                    txtLog.AppendText("关闭服务端 接收的socket.\r\n");
                 }
-                catch
+                catch(Exception ex)
                 {
-                    Console.WriteLine("关闭服务端 接收的socket");
+                    LogEx.log("关闭服务端 接收的socket exception:\r\n" + ex.Message);
                 }
             }
         }
@@ -143,7 +144,6 @@ namespace DataSyncServ
                 catch(Exception ex)
                 {
                     LogEx.log("serversock shutdown:\r\n"+ex.Message);
-                    Console.WriteLine("close serversocket exception!\n"+ex.Message);
                 }
             }
         }
@@ -175,7 +175,6 @@ namespace DataSyncServ
                     }
                     catch(Exception ex)
                     {
-                        Console.WriteLine("bind servSock exception:\n"+ex.Message);
                         LogEx.log("bind servSock exception:\r\n" + ex.Message);
                         return;
                     }
@@ -210,11 +209,11 @@ namespace DataSyncServ
                 {
                     txtLog.AppendText("wait a connection.... \r\n");
                     clientSock = serverSock.Accept();
-                    txtLog.AppendText(clientSock.RemoteEndPoint + "连接到服务器!" + clientSock.LocalEndPoint + "\r\n");
+                    txtLog.AppendText(clientSock.RemoteEndPoint + "connected to server !" + clientSock.LocalEndPoint + "\r\n");
                 }
                 catch(Exception ex)
                 {
-                    LogEx.log("serversock accept exception!\r\n" + ex.Message + "\r\n");
+                    LogEx.log("serversock accept exception!\r\n" + ex.Message);
                     break;
                 }
 
@@ -246,7 +245,7 @@ namespace DataSyncServ
 
             while (!endRecvFlg)
             {
-                Console.WriteLine("等待下一次消息\r\n");
+                txtLog.AppendText("wait next msg...\r\n");
                 msgBuf = new byte[125];
                 int count;
                 try{
@@ -256,7 +255,7 @@ namespace DataSyncServ
                     {
                         clientSock.Shutdown(SocketShutdown.Both);
                         clientSock.Close();
-                        txtLog.AppendText(clientSock.RemoteEndPoint + " exit the application !\r\n");
+                        txtLog.AppendText(clientSock.RemoteEndPoint + " shutdown !\r\n");
                     }
                     catch { LogEx.log("server-client sock close exception!\r\n"); }
                     return ;
@@ -270,7 +269,7 @@ namespace DataSyncServ
                 {
                     string whoExit = clientSock.RemoteEndPoint.ToString();
                     bool exitException = false;
-                    txtLog.AppendText( whoExit+ " request exit ! \r\n");
+                    txtLog.AppendText( "<>client "+whoExit+ " request exit ! \r\n");
 
                     //关闭连接
                     try
@@ -294,7 +293,7 @@ namespace DataSyncServ
                     {
                         txtLog.AppendText(whoExit + " exit ok ! \r\n");
                     }
-                    else { LogEx.log(whoExit + " may exit err:\r\n  "); }
+                    else { LogEx.log(whoExit + " may exit err !\r\n  "); }
 
                     return; //退出监听函数
                 }
@@ -304,16 +303,16 @@ namespace DataSyncServ
                 if (msg.StartsWith("upld:"))
                 {
                     heads = msg.Split('#');
-                    txtLog.AppendText("upld请求头:" + msg + "\r\n");
+                    txtLog.AppendText("<>client upld head:\r\n" + msg + "\r\n");
 
                     msg = "resupld:#" + heads[3] + "#"; //file:#unique#
                     try
                     {
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));// head response
-                        txtLog.AppendText("server res:" + msg + "\r\n");
+                        txtLog.AppendText("[]server resupld:" + msg + "\r\n");
                     }
                     catch(Exception ex)
-                    { LogEx.log("回应resupld时 socket异常:\r\n"+ex.Message); }
+                    { LogEx.log("[]server resupld exception:\r\n"+ex.Message); }
 
                     //重新下一次等待，等待 file: 请求
                     continue;
@@ -324,13 +323,13 @@ namespace DataSyncServ
                 if (msg.StartsWith("file:")) ////file: # file_len # file_name #
                 {
                     string fileName = msg.Split('#')[2];
-                    txtLog.AppendText("接收到客户端文件头:" + fileName + "文件上传请求!\r\n");
+                    txtLog.AppendText("<>client file head:\r\n" + msg + "\r\n");
 
                     msg = "resfile:#" + fileName + "#"; //file:#file_name#
                     try
                     {
                         clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                        txtLog.AppendText("server res:" + msg + "\r\n");
+                        txtLog.AppendText("[]server resfile:\r\n" + msg + "\r\n");
 
                         //封装upld任务
                         UpldTask task = new UpldTask(clientSock, heads);
@@ -341,10 +340,10 @@ namespace DataSyncServ
                         //{
                             recvData(task);
                         //}
-                        LogEx.log(clientSock.RemoteEndPoint + " release upld lock");
+                        //LogEx.log(clientSock.RemoteEndPoint + " release upld lock");
                     }
                     catch(Exception  ex)
-                    { LogEx.log("回应resfile 时socket 异常:\r\n"+ex.Message); }
+                    { LogEx.log("[]server resfile exception:\r\n"+ex.Message); }
 
                     /*不能用线程，这样会在sock.Receive()时出错
                     Thread recvDataTh = new Thread(recvData);
@@ -360,7 +359,7 @@ namespace DataSyncServ
                 #region 下载文件请求代码段
                 if (msg.StartsWith("dnld:"))
                 {
-                    txtLog.AppendText("client下载请求头:" + msg + "\r\n");
+                    txtLog.AppendText("<>client dnld head:\r\n" + msg + "\r\n");
 
                     string[] dnldInfo = (msg.Split('#')[1]).Split('_'); //dnld:#userid_datestring#
 
@@ -384,7 +383,7 @@ namespace DataSyncServ
                             FileInfo file = new FileInfo(dnldFileName);
                             string response = "resdnld:#" + msg.Split('#')[1] + "#" + file.Length + "#"+pltfmPdctStr+"#";
                             clientSock.Send(Encoding.UTF8.GetBytes(response.ToCharArray())); //响应client的下载请求
-                            txtLog.AppendText("server response:" + response + "\r\n");
+                            txtLog.AppendText("[]server resdnld:\r\n" + response + "\r\n");
 
                             //组装dnld任务
                             DnldTask dnldTask = new DnldTask(clientSock, dnldInfo, dnldFileName);
@@ -395,7 +394,7 @@ namespace DataSyncServ
                             sendDataTh.Start(dnldTask);
                         }
                         catch(Exception ex)
-                        { LogEx.log("发送data.zip 回应时文件或socket错误:\r\n"+ex.Message); }
+                        { LogEx.log("[]server resdnld exception:\r\n"+ex.Message); }
                     }
                     else
                     {
@@ -403,10 +402,10 @@ namespace DataSyncServ
                         try
                         {
                             clientSock.Send(Encoding.UTF8.GetBytes(response.ToCharArray()));//下载错误
-                            txtLog.AppendText("server response:" + response + "\r\n");
+                            txtLog.AppendText("[]server reserrdnld:\r\n" + response + "\r\n");
                         }
                         catch (Exception ex)
-                        { LogEx.log("发送errdnld回应时socket 异常:\r\n"+ex.Message); }
+                        { LogEx.log("[]server reserrdnld exception:\r\n"+ex.Message); }
                     }
 
                     //这是文件下载，前面已经开启下载线程，退出该线程
@@ -417,17 +416,19 @@ namespace DataSyncServ
 
                 #region 请求 summary.csv 消息处理代码段
                 //csv 文件请求
-                if (msg.StartsWith("reqcsv:")) //"reqcsv:#" + userId + "_" + trialDate + "#"
+                if (msg.StartsWith("reqcsv:")) //"reqcsv:#" + userId + "_" + trialDate + "#" [+ sumId + "#"]
                 {
-                    txtLog.AppendText("csv请求头:" + msg+"\r\n");
+                    txtLog.AppendText("<>client reqcsv head:\r\n" + msg+"\r\n");
                     csvTask = new CsvTask();
 
                     //根据请求头中的字段userid,trialdate 去数据库查询该trail路径
                     //检查文件系统中trail路径里是否有.csv 文件
-                    string[] trialUnique = (msg.Split('#')[1]).Split('_');
+                    string[] splits = msg.Split('#');
+                    string[] trialUnique = splits[1].Split('_');
                     string[] path = service.getTrialPath(trialUnique);
                     bool ifReqCsvErr = false;
                     string reqCsvErrStr = "";
+                    int sumId = Int32.Parse(splits[2]);
                     List<FileInfo> csvFiles = new List<FileInfo>();
 
                     #region Trial 记录检查
@@ -471,23 +472,24 @@ namespace DataSyncServ
                             clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                         }
                         catch(Exception ex)
-                        { LogEx.log("回应errreqcsv 信息时socket异常:\r\n"+ex.Message); }
+                        { LogEx.log("[]server reserrreqscv exception:\r\n"+ex.Message); }
                        
-                        txtLog.AppendText("下载出错! 详细信息:\r\n" + reqCsvErrStr+"\r\n");
+                        txtLog.AppendText("dnld error:\r\n" + reqCsvErrStr+"\r\n");
                         //重新等待下一次csv 请求
                         continue;
                     }
                     else //如果文件存在，正常回应，并开始发送数据线程
                     {
                         csvTask.CsvRunFlg = true;
-                        csvTask.SummaryName = csvFiles[0].FullName; // 发送第一个csv文件
+                        csvTask.SummaryName = csvFiles[sumId].FullName; // 发送第一个csv文件
 
                         try
                         {
                             //发送回应
-                            msg = "resreqcsv:#" + csvTask.SummaryName + "#";
+                            //msg = "resreqcsv:#" + csvTask.SummaryName + "#";
+                            msg = "resreqcsv:#" + csvFiles.Count + "#" + sumId + "#";
                             clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                            txtLog.AppendText("正常响应reqcsv:\r\n" + msg + "\r\n");
+                            txtLog.AppendText("[]server res reqcsv:\r\n" + msg + "\r\n");
 
                             csvTask.ClientSock = clientSock;
 
@@ -498,14 +500,14 @@ namespace DataSyncServ
                             sendCsvTh.Start(csvTask);
                         }
                         catch(Exception ex)
-                        { LogEx.log("发送resreqcsv回应时，socket异常:\r\n"+ex.Message); }
+                        { LogEx.log("[]server res reqcsv exception:\r\n"+ex.Message); }
                     }
 
                 }
                 //客户端接收过程中出错 ==>"errdnldcsv:#" + fileName + "#"
                 if (msg.StartsWith("errdnldcsv:"))
                 {
-                    txtLog.AppendText("客户端接收出错:" + msg+"\r\n");
+                    txtLog.AppendText("client accept csv error:\r\n" + msg+"\r\n");
                     //停止上面的csv 文件传输线程，并重新等待下一次csv请求
                     if (csvTask.CsvRunFlg) { csvTask.CsvRunFlg = false; }
 
@@ -561,9 +563,9 @@ namespace DataSyncServ
                             clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
                         }
                         catch(Exception ex)
-                        { LogEx.log("发送errreqcsv 回应时socket异常:\r\n"+ex.Message); }
+                        { LogEx.log("[]server res errreqcsv exception:\r\n"+ex.Message); }
 
-                        txtLog.AppendText("reqdbgfile出错! 详细信息:\r\n" + reqDbgErrStr+"\r\n");
+                        txtLog.AppendText("reqdbgfile error:\r\n" + reqDbgErrStr+"\r\n");
                         //重新等待下一次请求
                         continue;
                     }
@@ -573,12 +575,12 @@ namespace DataSyncServ
                         try
                         {
                             clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                            txtLog.AppendText("服务端回应 resreqdbgfile:#\r\n" + msg + "\r\n");
+                            txtLog.AppendText("[]server resreqdbgfile:\r\n" + msg + "\r\n");
                         }
                         catch(Exception ex)
                         {
-                            txtLog.AppendText("回应resreqdbgfile 时socket异常!\r\n");
-                            LogEx.log("回应resreqdbgfile 时socket异常!\r\n"+ex.Message);
+                            txtLog.AppendText("server resreqdbgfile exception !\r\n");
+                            LogEx.log("server resreqdbgfile exception !\r\n" + ex.Message);
                             continue;
                         }
 
@@ -590,9 +592,9 @@ namespace DataSyncServ
                         for(int i=0; i<dbgFiles.Count; i++)
                         {
                             //i + "*" + debugFiles[i].FullName
-                            if (dbg.Name.Equals(dbgFiles[i].Directory.Name))
+                            if (dbg.Name.Equals(dbgFiles[i].Directory.Name)) //就在debug/ 中的文件
                                 sb.Append(i + "*" + dbgFiles[i].Name.Replace('#', '@') + ",");
-                            else
+                            else //其他子目录中的文件
                                 sb.Append(i + "*" + dbgFiles[i].Directory.Name + "/" + dbgFiles[i].Name.Replace('#', '@') + ",");
                         }
                         sb.Append("#"); //用来分开前面的文件列表#??????及后面多余的东西
@@ -600,11 +602,11 @@ namespace DataSyncServ
                         try
                         {
                             clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                            txtLog.AppendText("服务端回应了debug/文件:msg\r\n");
+                            txtLog.AppendText("[]server res dbgfiles !");
                         }
                         catch(Exception ex) {
-                            txtLog.AppendText("发送dbg files list 时socket异常！\r\n");
-                            LogEx.log("发送dbg files list 时socket异常:\r\n" + ex.Message);
+                            txtLog.AppendText("exception-server res dbgfiles:\r\n"+ex.Message+"\r\n");
+                            LogEx.log("exception-server res dbgfiles:\r\n" + ex.Message);
                         }
                     }
 
@@ -625,7 +627,7 @@ namespace DataSyncServ
                         tmp = Encoding.UTF8.GetString(bunchIdBuf);
                         if (tmp.StartsWith("bunchfileids"))
                         {
-                            txtLog.AppendText("接收bunchfileid 成功！\r\n" + tmp + "\r\n");
+                            txtLog.AppendText("<>client bunchfileids:\r\n" + tmp + "\r\n");
 
                             //检查完下载目录后回应客户端
                             List<string> reqIds = new List<string>(tmp.Split('#')[1].Split(','));
@@ -690,10 +692,11 @@ namespace DataSyncServ
                                 try
                                 {
                                     clientSock.Send(Encoding.UTF8.GetBytes(msg.ToCharArray()));
-                                    txtLog.AppendText("reqdbgfile出错! 详细信息:\r\n" + reqBunchErrStr + "\r\n");
+                                    txtLog.AppendText("error-reqdbgfile error:\r\n" + reqBunchErrStr + "\r\n");
                                 }catch(Exception ex)
                                 {
-                                    txtLog.AppendText("回应errreqbunchfile时错误！" + ex.Message);
+                                    txtLog.AppendText("exception-res reqbunchfiles:\r\n" + ex.Message+"\r\n");
+                                    LogEx.log("exception-res reqbunchfiles:\r\n" + ex.Message);
                                 }
 
                                 //重新等待下一次请求

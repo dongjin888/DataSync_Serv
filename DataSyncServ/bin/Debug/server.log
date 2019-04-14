@@ -1,85 +1,494 @@
 server open success!
 wait a connection.... 
-127.0.0.1:52365连接到服务器!127.0.0.1:5000
+127.0.0.1:4626connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:52366连接到服务器!127.0.0.1:5000
+127.0.0.1:4627connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:52367连接到服务器!127.0.0.1:5000
+127.0.0.1:4628connected to server !127.0.0.1:5000
 wait a connection.... 
-csv请求头:reqcsv:#1000248501_1522025226543#正常响应reqcsv:
-resreqcsv:#c:\upload\AR8\leoB\1000248501_1522025226543\debug\LHC_1107_00022DNSlot3.csv#
-LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
-server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
-服务端回应 resreqdbgfile:#
-resreqdbgfile:#1000248501_1522025226543#
-服务端回应了debug/文件:msg
-client下载请求头:dnld:#1000248501_1522025226543#server response:resdnld:#1000248501_1522025226543#67176478#AR8_leoB#
+wait next msg...
+wait next msg...
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+<>client 127.0.0.1:4626 request exit ! 
+<>client 127.0.0.1:4627 request exit ! 
+<>client 127.0.0.1:4628 request exit ! 
+127.0.0.1:4626 exit ok ! 
+127.0.0.1:4628 exit ok ! 
+127.0.0.1:4627 exit ok ! 
+127.0.0.1:4649connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:4650connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:4651connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248501_1522253884157#
+[]server res dbgfiles !wait next msg...
+<>client bunchfileids:
+bunchfileids:#1,2,3,#1<>c:\upload\MPK\leoB\1000248501_1522253884157\debug\Akon - Mr.Lonely.mp3 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1522253884157\debug\akon - right now(na na na).mp3 加入下载队列!3<>c:\upload\MPK\leoB\1000248501_1522253884157\debug\anthem lights - the unknown.mp3 加入下载队列!server-resreqbunchfile:#3#10793124#
+wait next msg...
+Akon - Mr.Lonely.mp3 数据传输完成!
+akon - right now(na na na).mp3 数据传输完成!
+anthem lights - the unknown.mp3 数据传输完成!
+<>client 127.0.0.1:4649 request exit ! 
+<>client 127.0.0.1:4651 request exit ! 
+<>client 127.0.0.1:4650 request exit ! 
+127.0.0.1:4651 exit ok ! 
+1127.0.0.1:4649 exit ok ! 
+27.0.0.1:4650 exit ok ! 
+============2018/4/1 星期日 22:30:52===========
+server open success!
+wait a connection.... 
+127.0.0.1:4626connected to server !127.0.0.1:5000
+wait a connection.... 
+127.0.0.1:4627connected to server !127.0.0.1:5000
+wait a connection.... 
+127.0.0.1:4628connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+wait next msg...
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+<>client 127.0.0.1:4626 request exit ! 
+<>client 127.0.0.1:4627 request exit ! 
+<>client 127.0.0.1:4628 request exit ! 
+127.0.0.1:4626 exit ok ! 
+127.0.0.1:4628 exit ok ! 
+127.0.0.1:4627 exit ok ! 
+127.0.0.1:4649connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:4650connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:4651connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248501_1522253884157#
+[]server res dbgfiles !wait next msg...
+<>client bunchfileids:
+bunchfileids:#1,2,3,#1<>c:\upload\MPK\leoB\1000248501_1522253884157\debug\Akon - Mr.Lonely.mp3 加入下载队列!2<>c:\upload\MPK\leoB\1000248501_1522253884157\debug\akon - right now(na na na).mp3 加入下载队列!3<>c:\upload\MPK\leoB\1000248501_1522253884157\debug\anthem lights - the unknown.mp3 加入下载队列!server-resreqbunchfile:#3#10793124#
+wait next msg...
+Akon - Mr.Lonely.mp3 数据传输完成!
+akon - right now(na na na).mp3 数据传输完成!
+anthem lights - the unknown.mp3 数据传输完成!
+<>client 127.0.0.1:4649 request exit ! 
+<>client 127.0.0.1:4651 request exit ! 
+<>client 127.0.0.1:4650 request exit ! 
+127.0.0.1:4651 exit ok ! 
+1127.0.0.1:4649 exit ok ! 
+27.0.0.1:4650 exit ok ! 
+======close======2018/4/1 星期日 22:30:52===========
+server open success!
+wait a connection.... 
+127.0.0.1:1202connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+<>client 127.0.0.1:1202 request exit ! 
+127.0.0.1:1202 exit ok ! 
+127.0.0.1:2537connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:2538connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:2539connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248501_1522253884157#
+[]server res dbgfiles !wait next msg...
+<>client 127.0.0.1:2537 request exit ! 
+127.0.0.1:2537 exit ok ! 
+<>client 127.0.0.1:2538 request exit ! 
+<>client 127.0.0.1:2539 request exit ! 
+127.0.0.1:2538 exit ok ! 
+127.0.0.1:2539 exit ok ! 
+============2018/4/2 星期一 0:30:00===========
+server open success!
+wait a connection.... 
+127.0.0.1:1202connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+<>client 127.0.0.1:1202 request exit ! 
+127.0.0.1:1202 exit ok ! 
+127.0.0.1:2537connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:2538connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+127.0.0.1:2539connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248501_1522253884157#
+[]server res dbgfiles !wait next msg...
+<>client 127.0.0.1:2537 request exit ! 
+127.0.0.1:2537 exit ok ! 
+<>client 127.0.0.1:2538 request exit ! 
+<>client 127.0.0.1:2539 request exit ! 
+127.0.0.1:2538 exit ok ! 
+127.0.0.1:2539 exit ok ! 
+======close======2018/4/2 星期一 0:30:01===========
+server open success!
+wait a connection.... 
+127.0.0.1:1336connected to server !127.0.0.1:5000
+wait a connection.... 
+127.0.0.1:1337connected to server !127.0.0.1:5000
+wait a connection.... 
+127.0.0.1:1338connected to server !127.0.0.1:5000
+wait a connection.... 
+wait next msg...
+wait next msg...
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248501_1522253884157#
+[]server res dbgfiles !wait next msg...
+<>client upld head:
+upld:#1000248502#1000248501#1000248502_1522628761947#MPK#leoB#new data#MingXiao's trial other#[]server resupld:resupld:#1000248502_1522628761947#
+wait next msg...
+<>client file head:
+file:#29114536#never_same_with_this.zip#[]server resfile:
+resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248502_1522628761947#
+[]server res dbgfiles !wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#1#[]server res reqcsv:
+resreqcsv:#5#1#
+wait next msg...
+DIH_Result.csv 数据传输完成!
+server 发送csv 文件结束标志!:endcsv:#DIH_Result.csv#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#2#[]server res reqcsv:
+resreqcsv:#5#2#
+wait next msg...
+DIH_step.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#DIH_step.csv#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#3#[]server res reqcsv:
+resreqcsv:#5#3#
+wait next msg...
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv#
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#4#[]server res reqcsv:
+resreqcsv:#5#4#
+wait next msg...
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+server 发送csv 文件结束标志!:endcsv:#TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv#
+wait next msg...
+<>client upld head:
+upld:#1000248501#1000248501#1000248501_1522628954791#MPK#leoB#chuang data#ChuangLi's trial other#[]server resupld:resupld:#1000248501_1522628954791#
+wait next msg...
+<>client file head:
+file:#29114536#never_same_with_this.zip#[]server resfile:
+resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+<>client dnld head:
+dnld:#1000248502_1522628761947#[]server resdnld:
+resdnld:#1000248502_1522628761947#29114536#MPK_leoB#
+wait next msg...
 data.zip 数据传输完成!
-server:end:#1000248501_1522025226543#
-127.0.0.1:52365 request exit ! 
-127.0.0.1:52366 request exit ! 
-127.0.0.1:52365 exit ok ! 
-127.0.0.1:52366 exit ok ! 
-127.0.0.1:52367 request exit ! 
-127.0.0.1:52367 exit ok ! 
-============3/27/2018 2:10:37 PM===========
+server:end:#1000248502_1522628761947#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+<>client 127.0.0.1:1336 request exit ! 
+<>client 127.0.0.1:1337 request exit ! 
+127.0.0.1:1336 exit ok ! 
+127.0.0.1:1337 exit ok ! 
+<>client 127.0.0.1:1338 request exit ! 
+127.0.0.1:1338 exit ok ! 
+============2018/4/2 星期一 9:22:08===========
 server open success!
 wait a connection.... 
-127.0.0.1:52365连接到服务器!127.0.0.1:5000
+127.0.0.1:1336connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:52366连接到服务器!127.0.0.1:5000
+127.0.0.1:1337connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:52367连接到服务器!127.0.0.1:5000
+127.0.0.1:1338connected to server !127.0.0.1:5000
 wait a connection.... 
-csv请求头:reqcsv:#1000248501_1522025226543#正常响应reqcsv:
-resreqcsv:#c:\upload\AR8\leoB\1000248501_1522025226543\debug\LHC_1107_00022DNSlot3.csv#
-LHC_1107_00022DNSlot3.csvsummary.csv 一次传输完成!
-server 发送文件结束标志!:endcsv:#LHC_1107_00022DNSlot3.csv#
-服务端回应 resreqdbgfile:#
-resreqdbgfile:#1000248501_1522025226543#
-服务端回应了debug/文件:msg
-client下载请求头:dnld:#1000248501_1522025226543#server response:resdnld:#1000248501_1522025226543#67176478#AR8_leoB#
+wait next msg...
+wait next msg...
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248501_1522253884157#
+[]server res dbgfiles !wait next msg...
+<>client upld head:
+upld:#1000248502#1000248501#1000248502_1522628761947#MPK#leoB#new data#MingXiao's trial other#[]server resupld:resupld:#1000248502_1522628761947#
+wait next msg...
+<>client file head:
+file:#29114536#never_same_with_this.zip#[]server resfile:
+resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248502_1522628761947#
+[]server res dbgfiles !wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#1#[]server res reqcsv:
+resreqcsv:#5#1#
+wait next msg...
+DIH_Result.csv 数据传输完成!
+server 发送csv 文件结束标志!:endcsv:#DIH_Result.csv#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#2#[]server res reqcsv:
+resreqcsv:#5#2#
+wait next msg...
+DIH_step.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#DIH_step.csv#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#3#[]server res reqcsv:
+resreqcsv:#5#3#
+wait next msg...
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv#
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#4#[]server res reqcsv:
+resreqcsv:#5#4#
+wait next msg...
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+server 发送csv 文件结束标志!:endcsv:#TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv#
+wait next msg...
+<>client upld head:
+upld:#1000248501#1000248501#1000248501_1522628954791#MPK#leoB#chuang data#ChuangLi's trial other#[]server resupld:resupld:#1000248501_1522628954791#
+wait next msg...
+<>client file head:
+file:#29114536#never_same_with_this.zip#[]server resfile:
+resfile:#never_same_with_this.zip#
+服务端解压并删除文件成功!
+插入数据记录成功！
+上传结束，回应客户端:resend:#never_same_with_this.zip#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248501_1522253884157#0#dnld error:
+数据库中有Trail记录，但文件系统中Trail数据丢失！
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+<>client dnld head:
+dnld:#1000248502_1522628761947#[]server resdnld:
+resdnld:#1000248502_1522628761947#29114536#MPK_leoB#
+wait next msg...
 data.zip 数据传输完成!
-server:end:#1000248501_1522025226543#
-127.0.0.1:52365 request exit ! 
-127.0.0.1:52366 request exit ! 
-127.0.0.1:52365 exit ok ! 
-127.0.0.1:52366 exit ok ! 
-127.0.0.1:52367 request exit ! 
-127.0.0.1:52367 exit ok ! 
-======close======3/27/2018 2:10:43 PM===========
-======close======3/27/2018 2:44:38 PM===========
-======close======3/27/2018 2:46:26 PM===========
+server:end:#1000248502_1522628761947#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+<>client 127.0.0.1:1336 request exit ! 
+<>client 127.0.0.1:1337 request exit ! 
+127.0.0.1:1336 exit ok ! 
+127.0.0.1:1337 exit ok ! 
+<>client 127.0.0.1:1338 request exit ! 
+127.0.0.1:1338 exit ok ! 
+======close======2018/4/2 星期一 9:22:09===========
 server open success!
 wait a connection.... 
-127.0.0.1:57347连接到服务器!127.0.0.1:5000
+127.0.0.1:13086connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:57348连接到服务器!127.0.0.1:5000
+127.0.0.1:13087connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:57349连接到服务器!127.0.0.1:5000
+127.0.0.1:13088connected to server !127.0.0.1:5000
 wait a connection.... 
-1127.0.0.1:57348 request exit ! 
-27.0.0.1:57347 request exit ! 
-1127.0.0.1:57348 exit ok ! 
-27.0.0.1:57347 exit ok ! 
-127.0.0.1:57349 request exit ! 
-127.0.0.1:57349 exit ok ! 
-============3/27/2018 2:51:39 PM===========
+wait next msg...
+wait next msg...
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248502_1522628761947#
+[]server res dbgfiles !wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#1#[]server res reqcsv:
+resreqcsv:#5#1#
+wait next msg...
+DIH_Result.csv 数据传输完成!
+server 发送csv 文件结束标志!:endcsv:#DIH_Result.csv#
+wait next msg...
+<>client bunchfileids:
+bunchfileids:#7,10,11,#7<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\avril lavigne - innocence - aa 劲爆 艾薇儿.mp3 加入下载队列!10<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\DIH_Result.csv 加入下载队列!11<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\DIH_step.csv 加入下载队列!server-resreqbunchfile:#3#7460887#
+wait next msg...
+avril lavigne - innocence - aa 劲爆 艾薇儿.mp3 数据传输完成!
+DIH_Result.csv 数据传输完成!
+DIH_step.csv一次文件传输完成!
+<>client dnld head:
+dnld:#1000248501_1522628954791#[]server resdnld:
+resdnld:#1000248501_1522628954791#29114536#MPK_leoB#
+wait next msg...
+data.zip 数据传输完成!
+server:end:#1000248501_1522628954791#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#2#[]server res reqcsv:
+resreqcsv:#5#2#
+wait next msg...
+DIH_step.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#DIH_step.csv#
+wait next msg...
+<>client bunchfileids:
+bunchfileids:#12,13,#12<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!13<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#952187#
+wait next msg...
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+<>client 127.0.0.1:13086 request exit ! 
+<>client 127.0.0.1:13087 request exit ! 
+<>client 127.0.0.1:13088 request exit ! 
+127.0.0.1:13086 exit ok ! 
+127.0.0.1:13088 exit ok ! 
+127.0.0.1:13087 exit ok ! 
+============2018/4/2 星期一 10:21:31===========
 server open success!
 wait a connection.... 
-127.0.0.1:57347连接到服务器!127.0.0.1:5000
+127.0.0.1:13086connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:57348连接到服务器!127.0.0.1:5000
+127.0.0.1:13087connected to server !127.0.0.1:5000
 wait a connection.... 
-127.0.0.1:57349连接到服务器!127.0.0.1:5000
+127.0.0.1:13088connected to server !127.0.0.1:5000
 wait a connection.... 
-1127.0.0.1:57348 request exit ! 
-27.0.0.1:57347 request exit ! 
-1127.0.0.1:57348 exit ok ! 
-27.0.0.1:57347 exit ok ! 
-127.0.0.1:57349 request exit ! 
-127.0.0.1:57349 exit ok ! 
-======close======3/27/2018 2:51:40 PM===========
-======close======3/27/2018 2:51:53 PM===========
-======close======3/27/2018 4:49:26 PM===========
-======close======3/28/2018 8:10:14 AM===========
+wait next msg...
+wait next msg...
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#0#[]server res reqcsv:
+resreqcsv:#5#0#
+wait next msg...
+1000248501_1519450270946.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#1000248501_1519450270946.csv#
+wait next msg...
+[]server resreqdbgfile:
+resreqdbgfile:#1000248502_1522628761947#
+[]server res dbgfiles !wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#1#[]server res reqcsv:
+resreqcsv:#5#1#
+wait next msg...
+DIH_Result.csv 数据传输完成!
+server 发送csv 文件结束标志!:endcsv:#DIH_Result.csv#
+wait next msg...
+<>client bunchfileids:
+bunchfileids:#7,10,11,#7<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\avril lavigne - innocence - aa 劲爆 艾薇儿.mp3 加入下载队列!10<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\DIH_Result.csv 加入下载队列!11<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\DIH_step.csv 加入下载队列!server-resreqbunchfile:#3#7460887#
+wait next msg...
+avril lavigne - innocence - aa 劲爆 艾薇儿.mp3 数据传输完成!
+DIH_Result.csv 数据传输完成!
+DIH_step.csv一次文件传输完成!
+<>client dnld head:
+dnld:#1000248501_1522628954791#[]server resdnld:
+resdnld:#1000248501_1522628954791#29114536#MPK_leoB#
+wait next msg...
+data.zip 数据传输完成!
+server:end:#1000248501_1522628954791#
+wait next msg...
+<>client reqcsv head:
+reqcsv:#1000248502_1522628761947#2#[]server res reqcsv:
+resreqcsv:#5#2#
+wait next msg...
+DIH_step.csvsummary.csv 一次传输完成!
+server 发送文件结束标志!:endcsv:#DIH_step.csv#
+wait next msg...
+<>client bunchfileids:
+bunchfileids:#12,13,#12<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv 加入下载队列!13<>d:\upload\MPK\leoB\1000248502_1522628761947\debug\TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 加入下载队列!server-resreqbunchfile:#2#952187#
+wait next msg...
+TfcMfgPerStepData-20.0100003-Amber4-DN-C2198-T8-DIH-8-157520.csv一次文件传输完成!
+TfcMfgSummaryData_Amber4_DN_C2198_TfcOnlyEval.csv 数据传输完成!
+<>client 127.0.0.1:13086 request exit ! 
+<>client 127.0.0.1:13087 request exit ! 
+<>client 127.0.0.1:13088 request exit ! 
+127.0.0.1:13086 exit ok ! 
+127.0.0.1:13088 exit ok ! 
+127.0.0.1:13087 exit ok ! 
+======close======2018/4/2 星期一 10:21:31===========

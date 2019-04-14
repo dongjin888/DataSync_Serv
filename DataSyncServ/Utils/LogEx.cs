@@ -15,7 +15,7 @@ namespace DataSyncServ.Utils
         {
             buf = new StringBuilder("----------------- " +
                                   "exception " + DateTime.Now.ToLongTimeString()+
-                                  "-------------------");
+                                  "-------------------\r\n");
         }
         public static void log(string message)
         {

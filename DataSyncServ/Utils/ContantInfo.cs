@@ -10,7 +10,7 @@ namespace DataSyncServ.Utils
     {
         public static class Database
         {
-            public static string CONSQLSTR = "server=localhost;database=datasync;uid=root;pwd=Sql@My_!;charset=utf8;";
+            public static string CONSQLSTR = "server=localhost;database=datasync;uid=root;pwd=root;charset=utf8;";
         }
 
         public static class SockServ
